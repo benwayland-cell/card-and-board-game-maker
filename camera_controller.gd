@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 	_zoom(delta)
 	_simple_pan(delta)
 	_click_and_drag()
+	
+	GlobalVariables.camera_zoom = zoom
 
 func _zoom(delta: float) -> void:
 	if Input.is_action_just_pressed("camera_zoom_in"):

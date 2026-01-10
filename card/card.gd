@@ -2,12 +2,19 @@ extends Node2D
 
 class_name Card
 
-const RIGHT_CLICK_MENU := preload("res://right_click_menu/right_click_menu.tscn")
+var card_front_location := preload("res://card/Test Card.png")
+var card_back_location := preload("res://card/Test Card Back.png")
 
 var selected := false
 var mouse_offset := Vector2.ZERO
 var is_snapping := false
 var start_drag_mouse_pos := Vector2.ZERO
+var face_up := false
+
+const RIGHT_CLICK_MENU := preload("res://right_click_menu/right_click_menu.tscn")
+
+func _ready() -> void:
+	%Sprite2D.texture = card_back_location
 
 func _process(_delta: float) -> void:
 	if not selected:
@@ -68,9 +75,22 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 		_right_click()
 
 func _left_click() -> void:
-	print("left click card")
+	flip_card()
 
 func _right_click() -> void:
-	var right_click_menu = RIGHT_CLICK_MENU.instantiate()
-	add_child(right_click_menu)
-	right_click_menu.position = get_local_mouse_position()
+	var button_array :Array[CustomButton]= [
+		CustomButton.new(self, "Flip Card", ButtonOptions.flip_card),
+		CustomButton.new(self, "Test 1", ButtonOptions.test1),
+		CustomButton.new(self, "Test 2", ButtonOptions.test2),
+		CustomButton.new(self, "Test 3", ButtonOptions.test3)
+	]
+	var right_click_menu := RIGHT_CLICK_MENU.instantiate()
+	right_click_menu.setup(self, button_array)
+
+func flip_card() -> void:
+	face_up = !face_up
+	
+	if face_up:
+		%Sprite2D.texture = card_front_location
+	else:
+		%Sprite2D.texture = card_back_location

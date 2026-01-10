@@ -15,6 +15,9 @@ mouse_filter = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("1_kl0hw")
+zoom_factor = null
+zoom_speed = null
+simple_pan_speed = null
 
 [node name="snapLocation" parent="." instance=ExtResource("1_jd0nb")]
 position = Vector2(429, -64)

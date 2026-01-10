@@ -3,16 +3,20 @@ extends Button
 class_name CustomButton
 
 var function :Callable
+var parent_node :Node
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_PASS
 
-func setup(new_text: String, given_function: Callable, node_to_be_attatched_to: Node):
+func _init(given_node: Node, new_text: String, given_function: Callable) -> void:
 	text = new_text
 	function = given_function
+	parent_node = given_node
 	self.pressed.connect(self._on_pressed)
-	node_to_be_attatched_to.add_child(self)
 
 
 func _on_pressed() -> void:
-	function.call()
+	# run the function for this button and check if we should cancel the right click menu
+	if function.call(parent_node):
+		# cancel the right click menu
+		get_parent().get_parent().get_parent().queue_free()
