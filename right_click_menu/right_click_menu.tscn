@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://dax4yl2ivqc1m"]
+
+[ext_resource type="Script" uid="uid://rhp575ettyhl" path="res://right_click_menu/right_click_menu.gd" id="1_7adnq"]
+
+[node name="right_click_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7adnq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 100.0
+offset_bottom = 101.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Test Button 1" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Test 1"
+
+[node name="Test Button 2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Test 2"
+
+[node name="Test Button 3" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Test 3"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Test Button 1" to="." method="_on_test_button_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Test Button 2" to="." method="_on_test_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Test Button 3" to="." method="_on_test_button_3_pressed"]
