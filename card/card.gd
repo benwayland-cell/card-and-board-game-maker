@@ -1,5 +1,7 @@
 extends Node2D
 
+const RIGHT_CLICK_MENU := preload("res://right_click_menu/right_click_menu.tscn")
+
 var selected := false
 var mouse_offset := Vector2.ZERO
 var is_snapping := false
@@ -67,4 +69,6 @@ func _left_click() -> void:
 	print("left click card")
 
 func _right_click() -> void:
-	print("right click card")
+	var right_click_menu = RIGHT_CLICK_MENU.instantiate()
+	add_child(right_click_menu)
+	right_click_menu.position = get_local_mouse_position()

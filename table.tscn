@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfi586cpgfuvl"]
+[gd_scene load_steps=4 format=3 uid="uid://dfi586cpgfuvl"]
 
 [ext_resource type="PackedScene" uid="uid://dskrgu27gr0yr" path="res://snap location/snap_location.tscn" id="1_jd0nb"]
 [ext_resource type="Script" uid="uid://chajnisakkiub" path="res://camera_controller.gd" id="1_kl0hw"]
 [ext_resource type="PackedScene" uid="uid://di0ogjsyshfmb" path="res://card/card.tscn" id="2_v5i0k"]
-[ext_resource type="PackedScene" uid="uid://dax4yl2ivqc1m" path="res://right_click_menu/right_click_menu.tscn" id="4_vjl2i"]
 
 [node name="Table" type="Node2D"]
 
@@ -28,10 +27,3 @@ position = Vector2(-63, -123)
 
 [node name="Card3" parent="." instance=ExtResource("2_v5i0k")]
 position = Vector2(81, 152)
-
-[node name="right_click_menu" parent="." instance=ExtResource("4_vjl2i")]
-visible = false
-offset_left = -478.0
-offset_top = -25.0
-offset_right = -478.0
-offset_bottom = -25.0
