@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name SnapLocation
+
 var mouse_is_overlapping := false
 
 func _on_area_2d_mouse_entered() -> void:

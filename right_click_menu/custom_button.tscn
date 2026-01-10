@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://crlkdpi8528rr"]
+
+[ext_resource type="Script" uid="uid://dpdvuwbxifmyh" path="res://right_click_menu/custom_button.gd" id="1_2x01q"]
+
+[node name="CustomButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_2x01q")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,10 +1,18 @@
 extends Control
 
+class_name RightClickMenu
+
 var mouse_is_hovering := false
 
 func _ready() -> void:
+	
+	
 	pass
-	# every button needs mouse_input set to pass (1)
+	# every button needs mouse_filter set to pass
+
+func setup(button_actions : Array[Callable]):
+	for button_action in button_actions:
+		pass
 
 func _process(_delta: float) -> void:
 	if (
@@ -30,3 +38,9 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	mouse_is_hovering = false
+
+func test1() -> void:
+	print("test 1")
+
+func test2() -> void:
+	print("test 2")

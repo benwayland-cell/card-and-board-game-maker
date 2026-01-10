@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Card
+
 const RIGHT_CLICK_MENU := preload("res://right_click_menu/right_click_menu.tscn")
 
 var selected := false
