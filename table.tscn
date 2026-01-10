@@ -8,10 +8,10 @@
 [node name="Table" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -1183.0
-offset_top = -573.0
-offset_right = 1207.0
-offset_bottom = 622.0
+offset_left = -1138.0
+offset_top = -592.0
+offset_right = 1252.0
+offset_bottom = 603.0
 mouse_filter = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
