@@ -5,7 +5,9 @@ class_name RightClickMenu
 var mouse_is_hovering := false
 
 func _ready() -> void:
-	
+	CustomButton.new().setup("Test 1", ButtonOptions.test1, %VBoxContainer)
+	CustomButton.new().setup("Test 2", ButtonOptions.test2, %VBoxContainer)
+	CustomButton.new().setup("Test 3", ButtonOptions.test3, %VBoxContainer)
 	
 	pass
 	# every button needs mouse_filter set to pass
@@ -21,26 +23,9 @@ func _process(_delta: float) -> void:
 		):
 		queue_free()
 
-func _on_test_button_1_pressed() -> void:
-	print("test button 1")
-
-
-func _on_test_button_2_pressed() -> void:
-	print("Test button 2")
-
-
-func _on_test_button_3_pressed() -> void:
-	print("Test button 3")
-
 
 func _on_mouse_entered() -> void:
 	mouse_is_hovering = true
 
 func _on_mouse_exited() -> void:
 	mouse_is_hovering = false
-
-func test1() -> void:
-	print("test 1")
-
-func test2() -> void:
-	print("test 2")

@@ -19,23 +19,5 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Test Button 1" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-text = "Test 1"
-
-[node name="Test Button 2" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-text = "Test 2"
-
-[node name="Test Button 3" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-text = "Test 3"
-
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Test Button 1" to="." method="_on_test_button_1_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Test Button 2" to="." method="_on_test_button_2_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Test Button 3" to="." method="_on_test_button_3_pressed"]
