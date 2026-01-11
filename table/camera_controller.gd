@@ -9,8 +9,10 @@ var drag_start_mouse_pos := Vector2.ZERO
 var drag_start_camera_pos := Vector2.ZERO
 var is_dragging := false
 
+
 func _ready() -> void:
 	zoom_target = zoom
+
 
 func _process(delta: float) -> void:
 	_zoom(delta)
@@ -18,6 +20,7 @@ func _process(delta: float) -> void:
 	_click_and_drag()
 	
 	GlobalVariables.camera_zoom = zoom
+
 
 func _zoom(delta: float) -> void:
 	if Input.is_action_just_pressed("camera_zoom_in"):
@@ -27,6 +30,7 @@ func _zoom(delta: float) -> void:
 		zoom_target *= 1 - zoom_factor
 	
 	zoom = zoom.slerp(zoom_target, zoom_speed * delta)
+
 
 func _simple_pan(delta: float) -> void:
 	var pan_vector := Vector2.ZERO
@@ -42,6 +46,7 @@ func _simple_pan(delta: float) -> void:
 	
 	pan_vector.normalized()
 	position += pan_vector * delta * simple_pan_speed * (1/zoom.x)
+
 
 func _click_and_drag() -> void:
 	if !is_dragging and Input.is_action_just_pressed("camera_pan"):

@@ -1,12 +1,14 @@
-extends Button
-
 class_name CustomButton
+
+extends Button
 
 var function :Callable
 var parent_node :Node
 
+
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_PASS
+
 
 func _init(given_node: Node, new_text: String, given_function: Callable) -> void:
 	text = new_text

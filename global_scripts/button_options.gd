@@ -9,13 +9,16 @@ func test1(_given_node: Node) -> bool:
 	print("test 1")
 	return false
 
+
 func test2(_given_node: Node) -> bool:
 	print("test 2")
 	return false
 
+
 func test3(_given_node: Node) -> bool:
 	print("test 3")
 	return true
+
 
 func flip_card(given_node: Card) -> bool:
 	given_node.flip_card()

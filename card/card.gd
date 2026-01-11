@@ -1,6 +1,7 @@
+class_name Card
+
 extends Node2D
 
-class_name Card
 
 # mostly not changing variables changed by constructor
 var card_front_location :Texture2D= preload("res://card/Test Card.png")
@@ -16,6 +17,7 @@ var face_up := false
 
 const RIGHT_CLICK_MENU := preload("res://right_click_menu/right_click_menu.tscn")
 
+
 func setup(given_name: String, given_card_front_location: Texture2D, given_card_back_location: CompressedTexture2D, given_variable_parts: Array[Node]) -> void:
 	# init given variables
 	name = given_name
@@ -30,6 +32,7 @@ func setup(given_name: String, given_card_front_location: Texture2D, given_card_
 	for node in variable_parts:
 		%VariableParts.add_child(node)
 
+
 func _process(_delta: float) -> void:
 	if not selected:
 		return
@@ -40,6 +43,7 @@ func _process(_delta: float) -> void:
 	
 	_follow_mouse()
 
+
 # handles snapping to this object
 func _handle_snapping(overlapping_area : Area2D):
 	if overlapping_area.has_method("check_for_snapping"):
@@ -48,6 +52,7 @@ func _handle_snapping(overlapping_area : Area2D):
 				global_position = overlapping_area.global_position
 			else:
 				is_snapping = false
+
 
 # makes sure the z_index of this item is above everything else
 func _handle_z_index(overlapping_area : Area2D):
@@ -63,6 +68,7 @@ func _handle_z_index(overlapping_area : Area2D):
 		
 		# actually sets the other object's z_index to other_z_index
 		overlapping_area.get_parent().z_index = other_z_index
+
 
 # Moves the card to follow the mouse
 func _follow_mouse():
@@ -88,8 +94,10 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 	elif event.is_action("right_click") and event.is_released():
 		_right_click()
 
+
 func _left_click() -> void:
 	flip_card()
+
 
 func _right_click() -> void:
 	var button_array :Array[CustomButton]= [
@@ -100,6 +108,7 @@ func _right_click() -> void:
 	]
 	var right_click_menu := RIGHT_CLICK_MENU.instantiate()
 	right_click_menu.setup(self, button_array)
+
 
 func flip_card() -> void:
 	face_up = !face_up

@@ -5,6 +5,7 @@ var test_card_back_location :Texture2D= preload("res://card/Test Card Back.png")
 
 var card_location := preload("res://card/card.tscn")
 
+
 func _ready() -> void:
 	var test_label = Label.new()
 	test_label.label_settings = GlobalVariables.simple_label_settings
