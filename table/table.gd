@@ -10,9 +10,10 @@ func _ready() -> void:
 	var test_label = Label.new()
 	test_label.label_settings = GlobalVariables.simple_label_settings
 	test_label.text = "1"
+	
 	var variable_node_array :Array[Node]= [test_label]
 	
 	var test_card := card_location.instantiate()
 	print(test_card.get_children())
-	test_card.setup("testCard", test_card_front_location, test_card_back_location, variable_node_array)
+	test_card.setup("testCard", test_card_front_location, test_card_back_location, variable_node_array, Vector2(0, 100), true)
 	add_child(test_card)

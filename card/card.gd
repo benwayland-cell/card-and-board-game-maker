@@ -4,8 +4,8 @@ extends Node2D
 
 
 # mostly not changing variables changed by constructor
-var card_front_location :Texture2D= preload("res://card/Test Card.png")
-var card_back_location :Texture2D= preload("res://card/Test Card Back.png")
+var card_front_texture :Texture2D= preload("res://card/Test Card.png")
+var card_back_texture :Texture2D= preload("res://card/Test Card Back.png")
 var variable_parts : Array[Node]
 
 # variables
@@ -13,20 +13,24 @@ var selected := false
 var mouse_offset := Vector2.ZERO
 var is_snapping := false
 var start_drag_mouse_pos := Vector2.ZERO
-var face_up := false
+var face_up :bool
 
 const RIGHT_CLICK_MENU := preload("res://right_click_menu/right_click_menu.tscn")
 
 
-func setup(given_name: String, given_card_front_location: Texture2D, given_card_back_location: CompressedTexture2D, given_variable_parts: Array[Node]) -> void:
+func setup(given_name: String, given_card_front_location: Texture2D,
+		given_card_back_location: CompressedTexture2D, given_variable_parts: Array[Node],
+		given_pos: Vector2, is_face_up: bool
+) -> void:
 	# init given variables
 	name = given_name
-	card_front_location = given_card_front_location
-	card_back_location = given_card_back_location
+	card_front_texture = given_card_front_location
+	card_back_texture = given_card_back_location
 	variable_parts = given_variable_parts
+	position = given_pos
+	face_up = is_face_up
 	
-	# set the texture to a default
-	%Sprite2D.texture = card_back_location
+	update_texture()
 	
 	# add all of the nodes in variable_parts to %VariableParts
 	for node in variable_parts:
@@ -113,9 +117,12 @@ func _right_click() -> void:
 func flip_card() -> void:
 	face_up = !face_up
 	
+	update_texture()
+
+func update_texture() -> void:
 	if face_up:
-		%Sprite2D.texture = card_front_location
+		%Sprite2D.texture = card_front_texture
 		%VariableParts.show()
 	else:
-		%Sprite2D.texture = card_back_location
+		%Sprite2D.texture = card_back_texture
 		%VariableParts.hide()
