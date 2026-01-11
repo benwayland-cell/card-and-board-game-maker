@@ -2,9 +2,11 @@ extends Node2D
 
 class_name Card
 
+# mostly not changing variables changed by constructor
 var card_front_location := preload("res://card/Test Card.png")
 var card_back_location := preload("res://card/Test Card Back.png")
 
+# variables
 var selected := false
 var mouse_offset := Vector2.ZERO
 var is_snapping := false
@@ -15,6 +17,12 @@ const RIGHT_CLICK_MENU := preload("res://right_click_menu/right_click_menu.tscn"
 
 func _ready() -> void:
 	%Sprite2D.texture = card_back_location
+	
+	var test_label = Label.new()
+	test_label.label_settings = GlobalVariables.simple_label_settings
+	test_label.text = "1"
+	test_label.label_settings.font_color = Color.GRAY
+	%VariableParts.add_child(test_label)
 
 func _process(_delta: float) -> void:
 	if not selected:
@@ -92,5 +100,7 @@ func flip_card() -> void:
 	
 	if face_up:
 		%Sprite2D.texture = card_front_location
+		%VariableParts.show()
 	else:
 		%Sprite2D.texture = card_back_location
+		%VariableParts.hide()
