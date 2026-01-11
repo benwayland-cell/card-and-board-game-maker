@@ -3,8 +3,9 @@ extends Node2D
 class_name Card
 
 # mostly not changing variables changed by constructor
-var card_front_location := preload("res://card/Test Card.png")
-var card_back_location := preload("res://card/Test Card Back.png")
+var card_front_location :Texture2D= preload("res://card/Test Card.png")
+var card_back_location :Texture2D= preload("res://card/Test Card Back.png")
+var variable_parts : Array[Node]
 
 # variables
 var selected := false
@@ -15,14 +16,19 @@ var face_up := false
 
 const RIGHT_CLICK_MENU := preload("res://right_click_menu/right_click_menu.tscn")
 
-func _ready() -> void:
+func setup(given_name: String, given_card_front_location: Texture2D, given_card_back_location: CompressedTexture2D, given_variable_parts: Array[Node]) -> void:
+	# init given variables
+	name = given_name
+	card_front_location = given_card_front_location
+	card_back_location = given_card_back_location
+	variable_parts = given_variable_parts
+	
+	# set the texture to a default
 	%Sprite2D.texture = card_back_location
 	
-	var test_label = Label.new()
-	test_label.label_settings = GlobalVariables.simple_label_settings
-	test_label.text = "1"
-	test_label.label_settings.font_color = Color.GRAY
-	%VariableParts.add_child(test_label)
+	# add all of the nodes in variable_parts to %VariableParts
+	for node in variable_parts:
+		%VariableParts.add_child(node)
 
 func _process(_delta: float) -> void:
 	if not selected:
