@@ -13,7 +13,8 @@ func _ready() -> void:
 func setup(node_to_attatch_to: Node, buttons : Array[CustomButton]) -> void:
 	# attatch all given buttons to self
 	for button in buttons:
-		$MarginContainer/VBoxContainer.add_child(button)
+		%VBoxContainer.add_child(button)
+		button.connect("cancel_menu", _on_cancel_menu)
 	
 	# attatch self and setup position
 	node_to_attatch_to.add_child(self)
@@ -43,3 +44,6 @@ func _on_mouse_exited() -> void:
 func _handle_scale() -> void:
 	var camera_zoom = GlobalVariables.camera_zoom
 	scale = Vector2(1 / camera_zoom.x, 1 / camera_zoom.y)
+
+func _on_cancel_menu() -> void:
+	queue_free()

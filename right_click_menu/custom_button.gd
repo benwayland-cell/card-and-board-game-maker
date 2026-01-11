@@ -2,6 +2,8 @@ class_name CustomButton
 
 extends Button
 
+signal cancel_menu
+
 var function :Callable
 var parent_node :Node
 
@@ -21,4 +23,4 @@ func _on_pressed() -> void:
 	# run the function for this button and check if we should cancel the right click menu
 	if function.call(parent_node):
 		# cancel the right click menu
-		get_parent().get_parent().get_parent().queue_free()
+		cancel_menu.emit()
