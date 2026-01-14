@@ -4,8 +4,8 @@ extends Node2D
 
 
 # mostly not changing variables changed by constructor
-var card_front_texture :Texture2D= preload("res://card_scene/Test Card.png")
-var card_back_texture :Texture2D= preload("res://card_scene/Test Card Back.png")
+var card_front_texture :Texture2D
+var card_back_texture :Texture2D
 var variable_parts : Array[Node]
 
 # variables
@@ -14,8 +14,6 @@ var mouse_offset := Vector2.ZERO
 var is_snapping := false
 var start_drag_mouse_pos := Vector2.ZERO
 var face_up :bool
-
-const RIGHT_CLICK_MENU := preload("res://right_click_menu/right_click_menu.tscn")
 
 
 func setup(given_card_front_texture: Texture2D,
@@ -109,7 +107,7 @@ func _right_click() -> void:
 		CustomButton.new(self, "Test 2", ButtonOptions.test2),
 		CustomButton.new(self, "Test 3", ButtonOptions.test3)
 	]
-	var right_click_menu := RIGHT_CLICK_MENU.instantiate()
+	var right_click_menu := GlobalVariables.RIGHT_CLICK_MENU_SCENE.instantiate()
 	right_click_menu.setup(self, button_array)
 
 

@@ -3,8 +3,6 @@ extends Node2D
 var test_card_front_location :Texture2D= preload("res://card_scene/Test Card.png")
 var test_card_back_location :Texture2D= preload("res://card_scene/Test Card Back.png")
 
-var card_location := preload("res://card_scene/card.tscn")
-
 
 func _ready() -> void:
 	#var test_label = Label.new()
