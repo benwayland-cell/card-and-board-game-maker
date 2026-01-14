@@ -18,13 +18,13 @@ var face_up :bool
 const RIGHT_CLICK_MENU := preload("res://right_click_menu/right_click_menu.tscn")
 
 
-func setup(given_card_front_location: Texture2D,
-		given_card_back_location: CompressedTexture2D, given_variable_parts: Array[Node],
+func setup(given_card_front_texture: Texture2D,
+		given_card_back_texture: CompressedTexture2D, given_variable_parts: Array[Node],
 		given_pos: Vector2, is_face_up: bool
 ) -> void:
 	# init given variables
-	card_front_texture = given_card_front_location
-	card_back_texture = given_card_back_location
+	card_front_texture = given_card_front_texture
+	card_back_texture = given_card_back_texture
 	variable_parts = given_variable_parts
 	position = given_pos
 	face_up = is_face_up
