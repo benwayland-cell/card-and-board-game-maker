@@ -19,10 +19,10 @@ func get_card_nodes(number_label_values : Array[int], text_label_values : Array[
 	# assign the given values to the nodes and add them to the list
 	for index in range(number_labels.size()):
 		number_labels[index].text = str(number_label_values[index])
-		nodes_to_return.append(number_labels[index])
+		nodes_to_return.append(number_labels[index].duplicate())
 	
 	for index in range(text_labels.size()):
 		text_labels[index].text = text_label_values[index]
-		nodes_to_return.append(text_labels[index])
+		nodes_to_return.append(text_labels[index].duplicate())
 	
 	return nodes_to_return
