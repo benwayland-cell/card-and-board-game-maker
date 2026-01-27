@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfi586cpgfuvl"]
+[gd_scene load_steps=5 format=3 uid="uid://dfi586cpgfuvl"]
 
 [ext_resource type="Script" uid="uid://865xhc5q8i3b" path="res://table/table.gd" id="1_7tbl0"]
 [ext_resource type="Script" uid="uid://chajnisakkiub" path="res://table/camera_controller.gd" id="2_u28b8"]
 [ext_resource type="PackedScene" uid="uid://dskrgu27gr0yr" path="res://snap location/snap_location.tscn" id="3_shk1j"]
+[ext_resource type="PackedScene" uid="uid://daxva46oxm3tt" path="res://stack/stack.tscn" id="4_7tbl0"]
 
 [node name="Table" type="Node2D"]
 script = ExtResource("1_7tbl0")
@@ -19,3 +20,6 @@ script = ExtResource("2_u28b8")
 
 [node name="SnapLocation" parent="." instance=ExtResource("3_shk1j")]
 position = Vector2(370, -131)
+
+[node name="Stack" parent="." instance=ExtResource("4_7tbl0")]
+position = Vector2(410, 164)

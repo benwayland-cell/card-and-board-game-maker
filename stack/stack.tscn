@@ -1,22 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dskrgu27gr0yr"]
+[gd_scene load_steps=5 format=3 uid="uid://daxva46oxm3tt"]
 
-[ext_resource type="Script" uid="uid://btpuxauc2juen" path="res://snap location/snap_location.gd" id="1_1qmro"]
-[ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://snap location/Snap Location.png" id="2_17pqr"]
-[ext_resource type="Script" uid="uid://qio3s6nl6n6g" path="res://snap location/snap_location_area_2d.gd" id="3_17pqr"]
+[ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://snap location/Snap Location.png" id="1_7kxph"]
+[ext_resource type="Script" uid="uid://bdfcwy8841fpp" path="res://stack/stack.gd" id="1_rpeue"]
+[ext_resource type="Script" uid="uid://cd0eoemp5crbv" path="res://stack/stack_area_2d.gd" id="3_yojl1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qmro"]
 size = Vector2(150, 210)
 
-[node name="SnapLocation" type="Node2D" groups=["snap_location"]]
-script = ExtResource("1_1qmro")
+[node name="Stack" type="Node2D" groups=["snap_location"]]
+script = ExtResource("1_rpeue")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1)
-texture = ExtResource("2_17pqr")
+texture = ExtResource("1_7kxph")
 
 [node name="Area2D" type="Area2D" parent="." groups=["snap_location"]]
 unique_name_in_owner = true
-script = ExtResource("3_17pqr")
+script = ExtResource("3_yojl1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_1qmro")

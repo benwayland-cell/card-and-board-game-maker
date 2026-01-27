@@ -17,8 +17,10 @@ func _ready() -> void:
 	var test_card_type := CardType.new("Test card type", test_card_back_location, [test_sub_type])
 	
 	var test_card :Card= test_card_type.make_card(0, [1], ["Test Text 1"])
+	test_card.name = "Test Card 1"
 	add_child(test_card)
 	
 	var test_card2 :Card= test_card_type.make_card(0, [2], ["Test Text 2"])
 	test_card2.position = Vector2(100, 100)
+	test_card2.name = "Test Card 2"
 	add_child(test_card2)

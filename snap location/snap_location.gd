@@ -1,5 +1,3 @@
-class_name SnapLocation
-
 extends Node2D
 
 var mouse_is_overlapping := false
