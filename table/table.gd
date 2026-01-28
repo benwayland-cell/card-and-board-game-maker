@@ -7,19 +7,21 @@ var stack_scene : PackedScene = preload("res://stack/stack.tscn")
 
 func _ready() -> void:
 	# make the cards
-	var test_label = Label.new()
-	test_label.label_settings = GlobalVariables.simple_label_settings
+	var test_label1 = Label.new()
+	test_label1.label_settings = GlobalVariables.simple_label_settings
+	test_label1.name = "Test number label"
 	
 	var test_label2 = Label.new()
 	test_label2.label_settings = GlobalVariables.simple_label_settings
 	test_label2.position = Vector2(-50, 20)
+	test_label2.name = "Test text label"
 	
-	var test_sub_type := CardSubType.new("Test card sub type", test_card_front_location, [test_label], [test_label2])
+	var test_sub_type := CardSubType.new("Test card sub type", test_card_front_location, [test_label1], [test_label2])
 	
 	var test_card_type := CardType.new("Test card type", test_card_back_location, [test_sub_type])
 	
-	var test_card :Card= test_card_type.make_card(0, [1], ["Test Text 1"])
-	test_card.name = "Test Card 1"
+	var test_card1 :Card= test_card_type.make_card(0, [1], ["Test Text 1"])
+	test_card1.name = "Test Card 1"
 	#add_child(test_card)
 	
 	var test_card2 :Card= test_card_type.make_card(0, [2], ["Test Text 2"])
@@ -27,9 +29,9 @@ func _ready() -> void:
 	test_card2.name = "Test Card 2"
 	#add_child(test_card2)
 	
-	
 	# make the stack
 	var test_stack : Stack = stack_scene.instantiate()
-	test_stack.add_cards([test_card2, test_card])
+	test_stack.add_cards([test_card2, test_card1])
 	add_child(test_stack)
 	
+	print(test_card1.get_variable_data())

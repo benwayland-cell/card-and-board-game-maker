@@ -6,7 +6,8 @@ var number_labels : Array[Label]
 var text_labels : Array[Label]
 
 
-func _init(given_name: String, given_card_front_texture: Texture2D, given_number_labels: Array[Label], given_text_labels: Array[Label]) -> void:
+func _init(given_name: String, given_card_front_texture: Texture2D,
+		given_number_labels: Array[Label], given_text_labels: Array[Label]) -> void:
 	name = given_name
 	card_front_texture = given_card_front_texture
 	number_labels = given_number_labels

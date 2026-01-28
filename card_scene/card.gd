@@ -118,6 +118,7 @@ func flip_card() -> void:
 	
 	update_texture()
 
+
 func update_texture() -> void:
 	if face_up:
 		current_texture = card_front_texture
@@ -127,3 +128,24 @@ func update_texture() -> void:
 		current_texture = card_back_texture
 		%Sprite2D.texture = card_back_texture
 		%VariableParts.hide()
+
+
+# makes a dictionary of all of the important data in the variable nodes
+func get_variable_data() -> Dictionary:
+	var variable_data : Dictionary = {}
+	
+	for node in %VariableParts.get_children():
+		var data_to_add
+		
+		if node is Label:
+			var text : String = node.text
+			if text.is_valid_int():
+				data_to_add = int(text)
+			else:
+				data_to_add = text
+		else:
+			print("Unhandled Variable part in " + str(self) + ": " + str(node))
+		
+		variable_data[node.name] = data_to_add
+	
+	return variable_data
