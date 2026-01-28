@@ -2,9 +2,11 @@ extends Node2D
 
 var test_card_front_location :Texture2D= preload("res://card_scene/Test Card.png")
 var test_card_back_location :Texture2D= preload("res://card_scene/Test Card Back.png")
+var stack_scene : PackedScene = preload("res://stack/stack.tscn")
 
 
 func _ready() -> void:
+	# make the cards
 	var test_label = Label.new()
 	test_label.label_settings = GlobalVariables.simple_label_settings
 	
@@ -18,9 +20,16 @@ func _ready() -> void:
 	
 	var test_card :Card= test_card_type.make_card(0, [1], ["Test Text 1"])
 	test_card.name = "Test Card 1"
-	add_child(test_card)
+	#add_child(test_card)
 	
 	var test_card2 :Card= test_card_type.make_card(0, [2], ["Test Text 2"])
-	test_card2.position = Vector2(100, 100)
+	#test_card2.position = Vector2(100, 100)
 	test_card2.name = "Test Card 2"
-	add_child(test_card2)
+	#add_child(test_card2)
+	
+	
+	# make the stack
+	var test_stack : Stack = stack_scene.instantiate()
+	test_stack.add_cards([test_card2, test_card])
+	add_child(test_stack)
+	

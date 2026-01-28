@@ -3,6 +3,8 @@ class_name CardType
 var name: String
 var card_back_texture: Texture2D
 var sub_types: Array[CardSubType]
+var deck : Array[Array]
+
 
 func _init(given_name: String, given_card_back_texture, given_sub_types: Array[CardSubType]) -> void:
 	name = given_name
