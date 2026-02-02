@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cq0456nebfdxi"]
+
+[ext_resource type="Script" uid="uid://dsykc8glp6ena" path="res://card_maker/camera_controller.gd" id="1_c371m"]
+[ext_resource type="Texture2D" uid="uid://dhsjyt8gy5reo" path="res://card_scene/Test Card.png" id="2_f5pdp"]
+
+[node name="CardMaker" type="Node2D" unique_id=834646800]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1753650922]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=915569362]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1324429831]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "test text"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1256520342]
+position = Vector2(576, 324)
+script = ExtResource("1_c371m")
+
+[node name="CardBackground" type="Sprite2D" parent="." unique_id=2089007389]
+position = Vector2(526, 317)
+texture = ExtResource("2_f5pdp")

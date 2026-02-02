@@ -2,7 +2,6 @@ extends Node2D
 class_name Card
 
 
-# mostly not changing variables changed by constructor
 var card_front_texture :Texture2D
 var card_back_texture :Texture2D
 var variable_parts : Array[Node]

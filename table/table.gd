@@ -20,7 +20,7 @@ func _ready() -> void:
 	
 	var test_card_type := CardType.new("Test card type", test_card_back_location, [test_sub_type])
 	test_card_type.deck = [
-		CardData.new(0, [1], ["Test Text 1"]), 
+		CardData.new(0, [1], ["Test Text 1"]),
 		CardData.new(0, [2], ["Test Text 2"]),
 		]
 	
@@ -38,5 +38,8 @@ func _ready() -> void:
 	#test_stack.add_cards([test_card2, test_card1])
 	test_stack.add_cards(test_card_type.make_deck())
 	add_child(test_stack)
+	
+	for card in test_stack.cards:
+		print(card.get_variable_data())
 	
 	#print(test_card1.get_variable_data())
