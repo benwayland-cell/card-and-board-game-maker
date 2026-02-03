@@ -29,7 +29,6 @@ func _zoom(delta: float) -> void:
 	if Input.is_action_just_pressed("camera_zoom_out"):
 		zoom_target *= 1 - zoom_factor
 	
-	print(zoom_target)
 	zoom = zoom.slerp(zoom_target, zoom_speed * delta)
 
 

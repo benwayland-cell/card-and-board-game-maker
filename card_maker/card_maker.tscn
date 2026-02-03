@@ -1,31 +1,79 @@
 [gd_scene format=3 uid="uid://cq0456nebfdxi"]
 
 [ext_resource type="Script" uid="uid://dsykc8glp6ena" path="res://card_maker/camera_controller.gd" id="1_c371m"]
-[ext_resource type="Texture2D" uid="uid://dhsjyt8gy5reo" path="res://card_scene/Test Card.png" id="2_f5pdp"]
+[ext_resource type="Script" uid="uid://boei65gut0jib" path="res://card_maker/card_maker.gd" id="1_y4jyd"]
+[ext_resource type="Script" uid="uid://bjp83ock7qkpx" path="res://card_maker/main_menu.gd" id="2_pkqwu"]
+[ext_resource type="Script" uid="uid://caa505xmgps1q" path="res://card_maker/card_type_menu.gd" id="3_pkqwu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f5pdp"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="CardMaker" type="Node2D" unique_id=834646800]
+script = ExtResource("1_y4jyd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1753650922]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=915569362]
-layout_mode = 3
-anchors_preset = 1
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1433512832]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+anchor_bottom = 1.0
+offset_left = -200.0
 grow_horizontal = 0
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1324429831]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "test text"
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer" unique_id=1974850130]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer" unique_id=849539420]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MainVBox" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer" unique_id=1700691432]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Top Menu" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox" unique_id=126985144]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Top Menu" unique_id=772175450]
+layout_mode = 2
+text = "<"
+
+[node name="MenuName" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Top Menu" unique_id=1765335954]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Empty Menu Name"
+label_settings = SubResource("LabelSettings_f5pdp")
+
+[node name="Other Menus" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox" unique_id=841541817]
+layout_mode = 2
+
+[node name="MainMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus" unique_id=1818354919]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+script = ExtResource("2_pkqwu")
+
+[node name="CardTypeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus" unique_id=215457526]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+script = ExtResource("3_pkqwu")
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus/CardTypeMenu" unique_id=546622481]
+layout_mode = 2
+text = "Card Type Menu"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1256520342]
-position = Vector2(576, 324)
 script = ExtResource("1_c371m")
 
 [node name="CardBackground" type="Sprite2D" parent="." unique_id=2089007389]
-position = Vector2(526, 317)
-texture = ExtResource("2_f5pdp")
+unique_name_in_owner = true
+position = Vector2(-187, 19)
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus/CardTypeMenu" method="_on_back_button_pressed"]
