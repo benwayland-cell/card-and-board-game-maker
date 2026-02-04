@@ -15,6 +15,7 @@ func open() -> void:
 	visible = true
 	%CardTypeNameBox.text = card_type.name
 	%SubTypeOptions.setup(card_type)
+	%CardBackground.texture = card_type.card_back_texture
 
 
 func close() -> void:

@@ -28,3 +28,19 @@ func get_card_nodes(number_label_values : Array[int], text_label_values : Array[
 		nodes_to_return.append(text_labels[index].duplicate())
 	
 	return nodes_to_return
+
+
+# returns a list of all the nodes with default values
+func get_default_card_nodes() -> Array[Node]:
+	var nodes_to_return : Array[Node] = []
+	
+	# assign the given values to the nodes and add them to the list
+	for index in range(number_labels.size()):
+		number_labels[index].text = "1"
+		nodes_to_return.append(number_labels[index].duplicate())
+	
+	for index in range(text_labels.size()):
+		text_labels[index].text = "Lorem Ipsum"
+		nodes_to_return.append(text_labels[index].duplicate())
+	
+	return nodes_to_return

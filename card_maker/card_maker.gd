@@ -4,7 +4,7 @@ extends Node2D
 #var current_menu := Menus.MAIN
 
 func _ready() -> void:
-	%CardBackground.texture = GlobalVariables.TEST_CARD_FRONT_TEXTURE
+	#%CardBackground.texture = GlobalVariables.TEST_CARD_FRONT_TEXTURE
 	%MainMenu.open()
 
 func _process(_delta: float) -> void:

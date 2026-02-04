@@ -3,6 +3,7 @@ extends VBoxContainer
 func open() -> void:
 	%MenuName.text = "Card Types"
 	visible = true
+	%CardBackground.texture = null
 	
 	# set up the buttons for each card type
 	for card_type in GlobalVariables.card_types:
