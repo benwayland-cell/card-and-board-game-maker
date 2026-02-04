@@ -102,11 +102,11 @@ func _left_click() -> void:
 
 
 func _right_click() -> void:
-	var button_array :Array[CustomButton]= [
-		CustomButton.new(self, "Flip Card", ButtonOptions.flip_card),
-		CustomButton.new(self, "Test 1", ButtonOptions.test1),
-		CustomButton.new(self, "Test 2", ButtonOptions.test2),
-		CustomButton.new(self, "Test 3", ButtonOptions.test3)
+	var button_array :Array[CustomRightClickButton]= [
+		CustomRightClickButton.new(self, "Flip Card", ButtonOptions.flip_card),
+		CustomRightClickButton.new(self, "Test 1", ButtonOptions.test1),
+		CustomRightClickButton.new(self, "Test 2", ButtonOptions.test2),
+		CustomRightClickButton.new(self, "Test 3", ButtonOptions.test3)
 	]
 	var right_click_menu := GlobalVariables.RIGHT_CLICK_MENU_SCENE.instantiate()
 	right_click_menu.setup(self, button_array)

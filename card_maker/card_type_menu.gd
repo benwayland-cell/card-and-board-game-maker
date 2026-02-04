@@ -1,11 +1,38 @@
 extends VBoxContainer
 
-func open() -> void:
-	%MenuName.text = "Card Type 1"
-	visible = true
+var card_type: CardType
 
+
+# opens the menu with the data of a card type
+func open_card_type(given_card_type : CardType) -> void:
+	card_type = given_card_type
+	open()
+
+
+# opens the menu in its current state
+func open() -> void:
+	%MenuName.text = card_type.name
+	visible = true
+	%CardTypeNameBox.text = card_type.name
+	%SubTypeOptions.setup(card_type)
+
+
+func close() -> void:
+	visible = false
+	%SubTypeOptions.close()
 
 func _on_back_button_pressed() -> void:
 	if visible:
-		visible = false
+		close()
 		%MainMenu.open()
+
+
+func _on_card_type_name_box_text_submitted(new_text: String) -> void:
+	# if the text isn't empty
+	if new_text != "":
+		card_type.name = new_text
+		%MenuName.text = new_text
+		return
+	
+	# reset the text if it is empty
+	%CardTypeNameBox.text = card_type.name

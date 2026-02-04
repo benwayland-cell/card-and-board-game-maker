@@ -5,15 +5,11 @@
 [ext_resource type="Script" uid="uid://bjp83ock7qkpx" path="res://card_maker/main_menu.gd" id="2_pkqwu"]
 [ext_resource type="Script" uid="uid://caa505xmgps1q" path="res://card_maker/card_type_menu.gd" id="3_pkqwu"]
 [ext_resource type="Script" uid="uid://dhvxiun770ipn" path="res://card_maker/sub_type_options.gd" id="4_h5agh"]
-[ext_resource type="Script" uid="uid://cuxnpyi87lbx8" path="res://card_maker/card_sub_type_menu.gd" id="5_qg2o8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f5pdp"]
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pkqwu"]
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_gfq1c"]
 font_color = Color(0, 0, 0, 1)
 
 [node name="CardMaker" type="Node2D" unique_id=834646800]
@@ -58,59 +54,44 @@ layout_mode = 2
 text = "Empty Menu Name"
 label_settings = SubResource("LabelSettings_f5pdp")
 
-[node name="Menus" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox" unique_id=841541817]
+[node name="Other Menus" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox" unique_id=841541817]
 layout_mode = 2
 
-[node name="MainMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus" unique_id=1818354919]
+[node name="MainMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus" unique_id=1818354919]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 script = ExtResource("2_pkqwu")
 
-[node name="CardTypeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus" unique_id=215457526]
+[node name="CardTypeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus" unique_id=215457526]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 script = ExtResource("3_pkqwu")
 
-[node name="NameEntry" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu" unique_id=824166168]
+[node name="NameEntry" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus/CardTypeMenu" unique_id=824166168]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu/NameEntry" unique_id=402906220]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus/CardTypeMenu/NameEntry" unique_id=402906220]
 layout_mode = 2
 text = "Name:"
 label_settings = SubResource("LabelSettings_pkqwu")
 
-[node name="CardTypeNameBox" type="LineEdit" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu/NameEntry" unique_id=992329982]
+[node name="CardTypeNameBox" type="LineEdit" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus/CardTypeMenu/NameEntry" unique_id=992329982]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Card Type Name"
 
-[node name="SubTypeOptions" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu" unique_id=614346063]
+[node name="SubTypeOptions" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus/CardTypeMenu" unique_id=614346063]
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("4_h5agh")
 
-[node name="CardSubTypeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus" unique_id=1985312865]
-unique_name_in_owner = true
-visible = false
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus/CardTypeMenu/SubTypeOptions" unique_id=1065574510]
 layout_mode = 2
-script = ExtResource("5_qg2o8")
-
-[node name="NameEntry" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu" unique_id=628819226]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu/NameEntry" unique_id=1824979245]
-layout_mode = 2
-text = "Name:"
-label_settings = SubResource("LabelSettings_gfq1c")
-
-[node name="CardSubTypeNameBox" type="LineEdit" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu/NameEntry" unique_id=1085896709]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Sub Type Name"
+size_flags_horizontal = 0
+text = "Sub type 1"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1256520342]
 script = ExtResource("1_c371m")
@@ -119,7 +100,5 @@ script = ExtResource("1_c371m")
 unique_name_in_owner = true
 position = Vector2(-187, 19)
 
-[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu" method="_on_back_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_back_button_pressed"]
-[connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu/NameEntry/CardTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu" method="_on_card_type_name_box_text_submitted"]
-[connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu/NameEntry/CardSubTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_card_sub_type_name_box_text_submitted"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus/CardTypeMenu" method="_on_back_button_pressed"]
+[connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus/CardTypeMenu/NameEntry/CardTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Other Menus/CardTypeMenu" method="_on_card_type_name_box_text_submitted"]

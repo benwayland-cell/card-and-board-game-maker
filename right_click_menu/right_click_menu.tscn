@@ -1,22 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dax4yl2ivqc1m"]
+[gd_scene format=3 uid="uid://dax4yl2ivqc1m"]
 
 [ext_resource type="Script" uid="uid://rhp575ettyhl" path="res://right_click_menu/right_click_menu.gd" id="1_7adnq"]
 
-[node name="RightClickMenu" type="Control"]
+[node name="RightClickMenu" type="Control" unique_id=1104187275]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_7adnq")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=540553353]
 layout_mode = 0
 offset_right = 110.0
 offset_bottom = 10.0
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=307463324]
 layout_mode = 2
 color = Color(0.35906908, 0.35906908, 0.35906908, 1)
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer" unique_id=1387149659]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -25,7 +25,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2" unique_id=1112233045]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2

@@ -3,14 +3,14 @@ class_name RightClickMenu
 extends Control
 
 var mouse_is_hovering := false
-var buttons_to_add :Array[CustomButton]
+var buttons_to_add :Array[CustomRightClickButton]
 
 
 func _ready() -> void:
 	_handle_scale()
 
 
-func setup(node_to_attatch_to: Node, buttons : Array[CustomButton]) -> void:
+func setup(node_to_attatch_to: Node, buttons : Array[CustomRightClickButton]) -> void:
 	# attatch all given buttons to self
 	for button in buttons:
 		%VBoxContainer.add_child(button)
