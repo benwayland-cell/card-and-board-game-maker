@@ -1,8 +1,8 @@
 extends Node2D
 class_name Stack
 
-var empty_texture :Texture2D
-var cards :Array[Card]
+var empty_texture : Texture2D
+var cards : Array [Card]
 var mouse_is_overlapping := false
 
 

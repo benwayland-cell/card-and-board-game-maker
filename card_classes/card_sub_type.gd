@@ -32,17 +32,23 @@ func _init_dictionaries() -> void:
 
 
 # returns a list of all of the nodes with updated values
-func get_card_nodes(number_label_values : Array[int], text_label_values : Array[String]) -> Array[Node]:
+func get_card_nodes(new_node_dictionary : Dictionary) -> Array[Node]:
 	var nodes_to_return : Array[Node] = []
 	
-	# assign the given values to the nodes and add them to the list
-	for index in range(number_labels.size()):
-		number_labels[index].text = str(number_label_values[index])
-		nodes_to_return.append(number_labels[index].duplicate())
-	
-	for index in range(text_labels.size()):
-		text_labels[index].text = text_label_values[index]
-		nodes_to_return.append(text_labels[index].duplicate())
+	for key in new_node_dictionary.keys():
+		var node_location : NodeLocation = _node_location_dictionary[key]
+		var value = new_node_dictionary[key]
+		
+		var node_type : NodeTypes = node_location.node_type
+		match node_type:
+			NodeTypes.NUMBER_LABEL:
+				var label : Label = number_labels[node_location.index]
+				label.text = str(value)
+				nodes_to_return.append(label.duplicate())
+			NodeTypes.TEXT_LABEL:
+				var label : Label = text_labels[node_location.index]
+				label.text = value
+				nodes_to_return.append(label.duplicate())
 	
 	return nodes_to_return
 

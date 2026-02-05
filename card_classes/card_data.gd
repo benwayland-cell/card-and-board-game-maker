@@ -1,11 +1,13 @@
 class_name CardData
 
 var sub_type_index : int
-var number_label_values : Array[int]
-var text_label_values : Array[String]
+var node_dictionary : Dictionary
 
 
-func _init(given_sub_type_index : int, given_number_label_values : Array[int], given_text_label_values : Array[String]) -> void:
+func _init(given_sub_type_index : int, given_node_dictionary) -> void:
 	sub_type_index = given_sub_type_index
-	number_label_values = given_number_label_values
-	text_label_values = given_text_label_values
+	node_dictionary = given_node_dictionary
+
+
+func _to_string() -> String:
+	return "sub_type_index: " + str(sub_type_index) + ", node_dictionary: " + str(node_dictionary)
