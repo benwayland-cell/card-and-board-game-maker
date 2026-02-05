@@ -1,7 +1,5 @@
 extends Node2D
 
-var test_card_front_location :Texture2D= preload("res://card_scene/Test Card.png")
-var test_card_back_location :Texture2D= preload("res://card_scene/Test Card Back.png")
 var stack_scene : PackedScene = preload("res://stack/stack.tscn")
 
 
