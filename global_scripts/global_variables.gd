@@ -1,5 +1,7 @@
 extends Node
 
+enum NodeTypes {NUMBER_LABEL, TEXT_LABEL}
+
 var camera_zoom := Vector2.ONE
 var simple_label_settings := LabelSettings.new()
 var card_types : Array[CardType] = []

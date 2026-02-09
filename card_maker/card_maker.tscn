@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://caa505xmgps1q" path="res://card_maker/card_type_menu.gd" id="3_pkqwu"]
 [ext_resource type="Script" uid="uid://dhvxiun770ipn" path="res://card_maker/sub_type_options.gd" id="4_h5agh"]
 [ext_resource type="Script" uid="uid://cuxnpyi87lbx8" path="res://card_maker/card_sub_type_menu.gd" id="5_qg2o8"]
+[ext_resource type="Script" uid="uid://do5i77vx5jwbw" path="res://card_maker/card_node_menu.gd" id="6_gfq1c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f5pdp"]
 font_color = Color(0, 0, 0, 1)
@@ -112,8 +113,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Sub Type Name"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu" unique_id=895917820]
+[node name="CardNodeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu" unique_id=895917820]
+unique_name_in_owner = true
 layout_mode = 2
+script = ExtResource("6_gfq1c")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1256520342]
 script = ExtResource("1_c371m")

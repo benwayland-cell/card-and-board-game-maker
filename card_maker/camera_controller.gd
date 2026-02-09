@@ -8,8 +8,8 @@ var zoom_target :Vector2
 func _ready() -> void:
 	zoom_target = zoom
 
-#func _process(delta: float) -> void:
-	#_zoom(delta)
+func _process(delta: float) -> void:
+	_zoom(delta)
 
 func _zoom(delta: float) -> void:
 	if Input.is_action_just_pressed("camera_zoom_in"):
