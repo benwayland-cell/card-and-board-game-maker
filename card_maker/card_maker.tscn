@@ -68,6 +68,15 @@ visible = false
 layout_mode = 2
 script = ExtResource("2_pkqwu")
 
+[node name="CardTypeOptionsMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/MainMenu" unique_id=256063945]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="+CardTypeButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/MainMenu" unique_id=2004824152]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+ Card Type"
+
 [node name="CardTypeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus" unique_id=215457526]
 unique_name_in_owner = true
 visible = false
@@ -129,5 +138,6 @@ position = Vector2(-187, 19)
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu" method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/MainMenu/+CardTypeButton" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/MainMenu" method="_on_card_type_button_pressed"]
 [connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu/NameEntry/CardTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu" method="_on_card_type_name_box_text_submitted"]
 [connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu/NameEntry/CardSubTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_card_sub_type_name_box_text_submitted"]
