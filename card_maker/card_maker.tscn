@@ -97,6 +97,7 @@ script = ExtResource("4_h5agh")
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+theme_override_constants/separation = 20
 script = ExtResource("5_qg2o8")
 
 [node name="NameEntry" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu" unique_id=628819226]
@@ -116,6 +117,7 @@ placeholder_text = "Sub Type Name"
 [node name="CardNodeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu" unique_id=895917820]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 20
 script = ExtResource("6_gfq1c")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1256520342]

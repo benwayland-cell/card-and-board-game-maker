@@ -1,24 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dskrgu27gr0yr"]
+[gd_scene format=3 uid="uid://dskrgu27gr0yr"]
 
 [ext_resource type="Script" uid="uid://btpuxauc2juen" path="res://snap location/snap_location.gd" id="1_1qmro"]
-[ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://snap location/Snap Location.png" id="2_17pqr"]
+[ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://card_textures/empty_card_sprite.png" id="2_17pqr"]
 [ext_resource type="Script" uid="uid://qio3s6nl6n6g" path="res://snap location/snap_location_area_2d.gd" id="3_17pqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qmro"]
 size = Vector2(150, 210)
 
-[node name="SnapLocation" type="Node2D" groups=["snap_location"]]
+[node name="SnapLocation" type="Node2D" unique_id=1569407030 groups=["snap_location"]]
 script = ExtResource("1_1qmro")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1220877340]
 position = Vector2(0, 1)
 texture = ExtResource("2_17pqr")
 
-[node name="Area2D" type="Area2D" parent="." groups=["snap_location"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=585306641 groups=["snap_location"]]
 unique_name_in_owner = true
 script = ExtResource("3_17pqr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1732733871]
 shape = SubResource("RectangleShape2D_1qmro")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

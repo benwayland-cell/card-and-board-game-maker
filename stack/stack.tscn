@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://daxva46oxm3tt"]
+[gd_scene format=3 uid="uid://daxva46oxm3tt"]
 
-[ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://snap location/Snap Location.png" id="1_7kxph"]
+[ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://card_textures/empty_card_sprite.png" id="1_7kxph"]
 [ext_resource type="Script" uid="uid://bdfcwy8841fpp" path="res://stack/stack.gd" id="1_rpeue"]
 [ext_resource type="Script" uid="uid://cd0eoemp5crbv" path="res://stack/stack_area_2d.gd" id="3_yojl1"]
 

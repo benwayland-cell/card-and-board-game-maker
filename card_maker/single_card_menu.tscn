@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bfagx5okkfala"]
+
+[ext_resource type="Script" uid="uid://cghwtnu5fy4o2" path="res://card_maker/single_node_menu.gd" id="1_k1pjh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k1pjh"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dc5a0"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1txer"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2r4ib"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="SingleCardMenu" type="VBoxContainer" unique_id=764371061]
+size_flags_horizontal = 3
+script = ExtResource("1_k1pjh")
+
+[node name="NameHBox" type="HBoxContainer" parent="." unique_id=34882864]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NameHBox" unique_id=1492026245]
+layout_mode = 2
+text = "Node: "
+label_settings = SubResource("LabelSettings_k1pjh")
+
+[node name="NameLineEdit" type="LineEdit" parent="NameHBox" unique_id=1525003324]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PosHBox" type="HBoxContainer" parent="." unique_id=217153373]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PosHBox" unique_id=711172132]
+layout_mode = 2
+text = "Position: "
+label_settings = SubResource("LabelSettings_dc5a0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PosHBox" unique_id=656366052]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="XCorHBox" type="HBoxContainer" parent="PosHBox/VBoxContainer" unique_id=12256866]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PosHBox/VBoxContainer/XCorHBox" unique_id=1382610987]
+layout_mode = 2
+text = "x: "
+label_settings = SubResource("LabelSettings_1txer")
+
+[node name="XCorSpinBox" type="SpinBox" parent="PosHBox/VBoxContainer/XCorHBox" unique_id=1862751887]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -100.0
+
+[node name="YCorHBox" type="HBoxContainer" parent="PosHBox/VBoxContainer" unique_id=876340088]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PosHBox/VBoxContainer/YCorHBox" unique_id=1124517957]
+layout_mode = 2
+text = "y: "
+label_settings = SubResource("LabelSettings_2r4ib")
+
+[node name="YCorSpinBox" type="SpinBox" parent="PosHBox/VBoxContainer/YCorHBox" unique_id=1026026676]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -100.0
+
+[connection signal="text_submitted" from="NameHBox/NameLineEdit" to="." method="_on_name_line_edit_text_submitted"]
+[connection signal="value_changed" from="PosHBox/VBoxContainer/XCorHBox/XCorSpinBox" to="." method="_on_x_cor_spin_box_value_changed"]
+[connection signal="value_changed" from="PosHBox/VBoxContainer/YCorHBox/YCorSpinBox" to="." method="_on_y_cor_spin_box_value_changed"]
