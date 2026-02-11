@@ -9,7 +9,7 @@ func open_with_sub_type(given_card_sub_type : CardSubType) -> void:
 	_update_menu_name()
 	%CardSubTypeNameBox.text = card_sub_type.name
 	%CardBackground.texture = card_sub_type.card_front_texture
-	%CardNodeMenu.setup()
+	%CardNodeMenu.setup(card_sub_type)
 
 
 func close() -> void:
@@ -17,7 +17,7 @@ func close() -> void:
 	%CardNodeMenu.close()
 	
 	for child in %CardBackground.get_children():
-		child.queue_free()
+		%CardBackground.remove_child(child)
 
 
 func _update_menu_name() -> void:

@@ -2,19 +2,22 @@ class_name SingleCardMenu
 extends VBoxContainer
 
 var node : Node
-var node_type : GlobalVariables.NodeTypes
+var card_sub_type : CardSubType
+var node_location : CardSubType.NodeLocation
 
 var _name_line_edit : LineEdit
 
 
-func _init(given_node : Node) -> void:
-	node = given_node
+func _init(given_node_location : CardSubType.NodeLocation, given_card_sub_type : CardSubType) -> void:
+	card_sub_type = given_card_sub_type
+	node_location = given_node_location
 	
-	if node is Label:
-		if node.text.is_valid_int():
-			node_type = GlobalVariables.NodeTypes.NUMBER_LABEL
-		else:
-			node_type = GlobalVariables.NodeTypes.TEXT_LABEL
+	match node_location.node_type:
+		GlobalVariables.NodeTypes.NUMBER_LABEL:
+			node = card_sub_type.number_labels[node_location.index]
+			
+		GlobalVariables.NodeTypes.TEXT_LABEL:
+			node = card_sub_type.text_labels[node_location.index]
 
 
 func setup() -> void:
