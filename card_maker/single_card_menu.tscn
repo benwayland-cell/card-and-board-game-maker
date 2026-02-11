@@ -5,6 +5,12 @@
 [sub_resource type="LabelSettings" id="LabelSettings_k1pjh"]
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_jknn6"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qca5a"]
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_dc5a0"]
 font_color = Color(0, 0, 0, 1)
 
@@ -27,6 +33,42 @@ text = "Node: "
 label_settings = SubResource("LabelSettings_k1pjh")
 
 [node name="NameLineEdit" type="LineEdit" parent="NameHBox" unique_id=1525003324]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ValueContainer" type="MarginContainer" parent="." unique_id=910399538]
+layout_mode = 2
+
+[node name="NumberHBoxContainer" type="HBoxContainer" parent="ValueContainer" unique_id=1619520926]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ValueContainer/NumberHBoxContainer" unique_id=2077732673]
+layout_mode = 2
+text = "Default Number: "
+label_settings = SubResource("LabelSettings_jknn6")
+
+[node name="ValueSpinBox" type="SpinBox" parent="ValueContainer/NumberHBoxContainer" unique_id=813295213]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -9999999.9
+max_value = 9999999.9
+value = 0.09999999962747097
+
+[node name="TextHBoxContainer" type="HBoxContainer" parent="ValueContainer" unique_id=1249497477]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ValueContainer/TextHBoxContainer" unique_id=1585690690]
+layout_mode = 2
+text = "Default Text: "
+label_settings = SubResource("LabelSettings_qca5a")
+
+[node name="ValueLineEdit" type="LineEdit" parent="ValueContainer/TextHBoxContainer" unique_id=1646977990]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -72,5 +114,7 @@ size_flags_horizontal = 3
 min_value = -100.0
 
 [connection signal="text_submitted" from="NameHBox/NameLineEdit" to="." method="_on_name_line_edit_text_submitted"]
+[connection signal="value_changed" from="ValueContainer/NumberHBoxContainer/ValueSpinBox" to="." method="_on_value_spin_box_value_changed"]
+[connection signal="text_submitted" from="ValueContainer/TextHBoxContainer/ValueLineEdit" to="." method="_on_value_line_edit_text_submitted"]
 [connection signal="value_changed" from="PosHBox/VBoxContainer/XCorHBox/XCorSpinBox" to="." method="_on_x_cor_spin_box_value_changed"]
 [connection signal="value_changed" from="PosHBox/VBoxContainer/YCorHBox/YCorSpinBox" to="." method="_on_y_cor_spin_box_value_changed"]
