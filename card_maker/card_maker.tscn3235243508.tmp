@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dhvxiun770ipn" path="res://card_maker/sub_type_options.gd" id="4_h5agh"]
 [ext_resource type="Script" uid="uid://cuxnpyi87lbx8" path="res://card_maker/card_sub_type_menu.gd" id="5_qg2o8"]
 [ext_resource type="Script" uid="uid://do5i77vx5jwbw" path="res://card_maker/card_node_menu.gd" id="6_gfq1c"]
-[ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://card_textures/empty_card_sprite.png" id="8_hc6fa"]
+[ext_resource type="Script" uid="uid://dw8i1udf0l66r" path="res://card_maker/card_background.gd" id="8_q3rpv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f5pdp"]
 font_color = Color(0, 0, 0, 1)
@@ -136,7 +136,7 @@ script = ExtResource("1_c371m")
 [node name="CardBackground" type="Sprite2D" parent="." unique_id=2089007389]
 unique_name_in_owner = true
 position = Vector2(-187, 19)
-texture = ExtResource("8_hc6fa")
+script = ExtResource("8_q3rpv")
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu" method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_back_button_pressed"]
