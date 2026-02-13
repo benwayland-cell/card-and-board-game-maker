@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dsykc8glp6ena" path="res://card_maker/camera_controller.gd" id="1_c371m"]
 [ext_resource type="Script" uid="uid://boei65gut0jib" path="res://card_maker/card_maker.gd" id="1_y4jyd"]
+[ext_resource type="PackedScene" uid="uid://c83viscthosp4" path="res://card_maker/delete_menu.tscn" id="2_hc6fa"]
 [ext_resource type="Script" uid="uid://bjp83ock7qkpx" path="res://card_maker/main_menu.gd" id="2_pkqwu"]
 [ext_resource type="Script" uid="uid://caa505xmgps1q" path="res://card_maker/card_type_menu.gd" id="3_pkqwu"]
 [ext_resource type="Script" uid="uid://dhvxiun770ipn" path="res://card_maker/sub_type_options.gd" id="4_h5agh"]
@@ -129,6 +130,14 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 20
 script = ExtResource("6_gfq1c")
+
+[node name="SingleNodeMenus" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu" unique_id=1251381775]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="DeleteMenu" parent="CanvasLayer" unique_id=608963587 instance=ExtResource("2_hc6fa")]
+unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1256520342]
 script = ExtResource("1_c371m")

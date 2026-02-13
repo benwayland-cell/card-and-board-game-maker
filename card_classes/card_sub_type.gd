@@ -35,6 +35,9 @@ func get_card_nodes(new_node_dictionary : Dictionary) -> Array[Node]:
 	var nodes_to_return : Array[Node] = []
 	
 	for key in new_node_dictionary.keys():
+		if not _node_location_dictionary.has(key):
+			continue
+		
 		var node_location : NodeLocation = _node_location_dictionary[key]
 		var value = new_node_dictionary[key]
 		
@@ -70,6 +73,21 @@ func get_default_card_nodes() -> Array[Node]:
 
 func get_node_dictionary() -> Dictionary:
 	return _node_dictionary.duplicate()
+
+
+func delete_node(node_to_delete : Node) -> void:
+	_node_location_dictionary.erase(node_to_delete.name)
+	_node_dictionary.erase(node_to_delete.name)
+	
+	for node in number_labels:
+		if node.name == node_to_delete.name:
+			number_labels.erase(node)
+			return
+	
+	for node in text_labels:
+		if node.name == node_to_delete.name:
+			text_labels.erase(node)
+			return
 
 
 class NodeLocation:

@@ -113,8 +113,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 min_value = -100.0
 
+[node name="DeleteButton" type="Button" parent="." unique_id=162746825]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Delete Node"
+
 [connection signal="text_submitted" from="NameHBox/NameLineEdit" to="." method="_on_name_line_edit_text_submitted"]
 [connection signal="value_changed" from="ValueContainer/NumberHBoxContainer/ValueSpinBox" to="." method="_on_value_spin_box_value_changed"]
 [connection signal="text_submitted" from="ValueContainer/TextHBoxContainer/ValueLineEdit" to="." method="_on_value_line_edit_text_submitted"]
 [connection signal="value_changed" from="PosHBox/VBoxContainer/XCorHBox/XCorSpinBox" to="." method="_on_x_cor_spin_box_value_changed"]
 [connection signal="value_changed" from="PosHBox/VBoxContainer/YCorHBox/YCorSpinBox" to="." method="_on_y_cor_spin_box_value_changed"]
+[connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]

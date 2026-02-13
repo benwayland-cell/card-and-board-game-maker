@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+signal delete_button_pressed
+
 var node : Node
 var card_sub_type : CardSubType
 var node_location : CardSubType.NodeLocation
@@ -54,3 +56,7 @@ func _on_value_spin_box_value_changed(value: int) -> void:
 
 func _on_value_line_edit_text_submitted(new_text: String) -> void:
 	node.text = new_text
+
+
+func _on_delete_button_pressed() -> void:
+	delete_button_pressed.emit(node)

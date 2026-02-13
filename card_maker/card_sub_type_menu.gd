@@ -15,9 +15,6 @@ func open_with_sub_type(given_card_sub_type : CardSubType) -> void:
 func close() -> void:
 	visible = false
 	%CardNodeMenu.close()
-	
-	for child in %CardBackground.get_children():
-		%CardBackground.remove_child(child)
 
 
 func _update_menu_name() -> void:
