@@ -136,6 +136,16 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 30
 
+[node name="+NumberLabelButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu" unique_id=729248232]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+ Number Label"
+
+[node name="+TextLabelButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu" unique_id=324069482]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+ Text Label"
+
 [node name="DeleteMenu" parent="CanvasLayer" unique_id=608963587 instance=ExtResource("2_hc6fa")]
 unique_name_in_owner = true
 
@@ -152,3 +162,5 @@ texture = ExtResource("8_hc6fa")
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/MainMenu/+CardTypeButton" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/MainMenu" method="_on_card_type_button_pressed"]
 [connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu/NameEntry/CardTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardTypeMenu" method="_on_card_type_name_box_text_submitted"]
 [connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu/NameEntry/CardSubTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_card_sub_type_name_box_text_submitted"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu/+NumberLabelButton" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu" method="_on_number_label_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu/+TextLabelButton" to="CanvasLayer/MarginContainer/MarginContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu" method="_on_text_label_button_pressed"]

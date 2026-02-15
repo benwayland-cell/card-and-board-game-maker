@@ -1,5 +1,11 @@
 class_name CardSubType
 
+const DEFAULT_NUMBER_LABEL_NAME : String = "New Number Label"
+const DEFAULT_NUMBER_LABEL_VALUE : int = 1
+
+const DEFAULT_TEXT_LABEL_NAME : String = "New Text Label"
+const DEFAULT_TEXT_LABEL_VALUE : String = "Lorem Ipsum"
+
 var name : String
 var card_front_texture : Texture2D
 var number_labels : Array[Label]
@@ -88,6 +94,34 @@ func delete_node(node_to_delete : Node) -> void:
 		if node.name == node_to_delete.name:
 			text_labels.erase(node)
 			return
+
+
+func add_new_number_label_node() -> Node:
+	var new_label = Label.new()
+	new_label.label_settings = GlobalVariables.simple_label_settings
+	new_label.name = DEFAULT_NUMBER_LABEL_NAME
+	new_label.text = str(DEFAULT_NUMBER_LABEL_VALUE)
+	
+	number_labels.append(new_label)
+	_node_location_dictionary[new_label.name] = (
+			NodeLocation.new(GlobalVariables.NodeTypes.NUMBER_LABEL, number_labels.size() - 1))
+	_node_dictionary[new_label.name] = DEFAULT_NUMBER_LABEL_VALUE
+	
+	return new_label
+
+
+func add_new_text_label_node() -> Node:
+	var new_label = Label.new()
+	new_label.label_settings = GlobalVariables.simple_label_settings
+	new_label.name = DEFAULT_TEXT_LABEL_NAME
+	new_label.text = DEFAULT_TEXT_LABEL_VALUE
+	
+	text_labels.append(new_label)
+	_node_location_dictionary[new_label.name] = (
+			NodeLocation.new(GlobalVariables.NodeTypes.TEXT_LABEL, text_labels.size() - 1))
+	_node_dictionary[new_label.name] = DEFAULT_TEXT_LABEL_VALUE
+	
+	return new_label
 
 
 class NodeLocation:

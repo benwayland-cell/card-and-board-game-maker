@@ -45,3 +45,17 @@ func _on_node_delete_button_pressed (node : Node):
 	card_sub_type.delete_node(node)
 	close()
 	setup(card_sub_type)
+
+
+# adds a number label to the sub type
+func _on_number_label_button_pressed() -> void:
+	card_sub_type.add_new_number_label_node()
+	close()
+	setup(card_sub_type)
+
+
+# adds a text label to the sub type
+func _on_text_label_button_pressed() -> void:
+	card_sub_type.add_new_text_label_node()
+	close()
+	setup(card_sub_type)
