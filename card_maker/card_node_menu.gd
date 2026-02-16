@@ -2,31 +2,23 @@ extends VBoxContainer
 
 var card_sub_type : CardSubType
 
-@onready var single_node_menu_scene : PackedScene = preload("res://card_maker/single_node_menu.tscn")
-
 func setup(given_card_sub_type : CardSubType) -> void:
 	card_sub_type = given_card_sub_type
-	
-	#var current_node_location := CardSubType.NodeLocation.new(CardNode.NodeTypes.NUMBER_LABEL, 0)
-	#for index in range(card_sub_type.number_labels.size()):
-		#var current_node : Node = card_sub_type.number_labels[index]
-		#%CardBackground.add_child(current_node)
-		#current_node_location.index = index
-		#
-		#var single_node_menu := single_node_menu_scene.instantiate()
-		#single_node_menu.setup(current_node_location, card_sub_type)
-		#single_node_menu.connect("delete_button_pressed", _on_node_delete_button_pressed)
-		#%SingleNodeMenus.add_child(single_node_menu)
-	#
-	#current_node_location.node_type = CardNode.NodeTypes.TEXT_LABEL
-	#for index in range(card_sub_type.text_labels.size()):
-		#%CardBackground.add_child(card_sub_type.text_labels[index])
-		#current_node_location.index = index
-		#
-		#var single_node_menu := single_node_menu_scene.instantiate()
-		#single_node_menu.setup(current_node_location, card_sub_type)
-		#single_node_menu.connect("delete_button_pressed", _on_node_delete_button_pressed)
-		#%SingleNodeMenus.add_child(single_node_menu)
+	_setup_nodes()
+
+
+func _setup_nodes() -> void:
+	for current_card_node : CardNode in card_sub_type.card_nodes:
+		%CardBackground.add_child(current_card_node.node)
+		var single_node_menu := GlobalVariables.SINGLE_NODE_MENU_SCENE.instantiate()
+		single_node_menu.setup(current_card_node, card_sub_type)
+		single_node_menu.connect("delete_button_pressed", _on_node_delete_button_pressed)
+		%SingleNodeMenus.add_child(single_node_menu)
+
+
+func _reset_nodes() -> void:
+	close()
+	_setup_nodes()
 
 
 func close() -> void:
@@ -43,19 +35,16 @@ func _on_node_delete_button_pressed (node : Node):
 		return
 	
 	card_sub_type.delete_node(node)
-	close()
-	setup(card_sub_type)
+	_reset_nodes()
 
 
-# adds a number label to the sub type
+# adds a new number label to the sub type
 func _on_number_label_button_pressed() -> void:
 	card_sub_type.add_new_number_label_node()
-	close()
-	setup(card_sub_type)
+	_reset_nodes()
 
 
-# adds a text label to the sub type
+# adds a new text label to the sub type
 func _on_text_label_button_pressed() -> void:
 	card_sub_type.add_new_text_label_node()
-	close()
-	setup(card_sub_type)
+	_reset_nodes()
