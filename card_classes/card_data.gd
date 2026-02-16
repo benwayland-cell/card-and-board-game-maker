@@ -1,13 +1,13 @@
 class_name CardData
 
 var sub_type_index : int
-var node_dictionary : Dictionary
+var card_data_array : Array
 
 
-func _init(given_sub_type_index : int, given_node_dictionary) -> void:
+func _init(given_sub_type_index : int, given_card_data_array) -> void:
 	sub_type_index = given_sub_type_index
-	node_dictionary = given_node_dictionary
+	card_data_array = given_card_data_array
 
 
 func _to_string() -> String:
-	return "sub_type_index: " + str(sub_type_index) + ", node_dictionary: " + str(node_dictionary)
+	return "sub_type_index: " + str(sub_type_index) + ", card_data_array: " + str(card_data_array)

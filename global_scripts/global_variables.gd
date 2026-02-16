@@ -1,7 +1,5 @@
 extends Node
 
-enum NodeTypes {NUMBER_LABEL, TEXT_LABEL}
-
 var camera_zoom := Vector2.ONE
 var simple_label_settings := LabelSettings.new()
 var card_types : Array[CardType] = []
@@ -21,6 +19,7 @@ func _ready():
 	test_label1.label_settings.font_size = 20
 	test_label1.name = "Test number label"
 	test_label1.text = "1"
+	var test_card_node1 := CardNode.new(test_label1, CardNode.NodeTypes.NUMBER_LABEL)
 	
 	var test_label2 = Label.new()
 	test_label2.label_settings = GlobalVariables.simple_label_settings
@@ -28,17 +27,17 @@ func _ready():
 	test_label2.position = Vector2(-50, 20)
 	test_label2.name = "Test text label"
 	test_label2.text = "Lorem Ipsum"
+	var test_card_node2 := CardNode.new(test_label2, CardNode.NodeTypes.TEXT_LABEL)
 	
-	var test_sub_type := CardSubType.new("Test card sub type", TEST_CARD_FRONT_TEXTURE, [test_label1], [test_label2])
+	var test_sub_type := CardSubType.new("Test card sub type", TEST_CARD_FRONT_TEXTURE, [test_card_node1, test_card_node2])
 	
-	var alt_node_dictionary : Dictionary = test_sub_type.get_node_dictionary()
-	alt_node_dictionary[test_label1.name] = 2
-	alt_node_dictionary[test_label2.name] = "Test Text"
+	#alt_node_dictionary[test_label1.name] = 2
+	#alt_node_dictionary[test_label2.name] = "Test Text"
 	
 	var test_card_type := CardType.new("Test card type", TEST_CARD_BACK_TEXTURE, [test_sub_type])
 	test_card_type.deck = [
-		CardData.new(0, test_sub_type.get_node_dictionary()),
-		CardData.new(0, alt_node_dictionary),
+		CardData.new(0, [1, "Test Text 1"]),
+		CardData.new(0, [2, "Test Text 2"]),
 		]
 	
 	card_types.append(test_card_type)

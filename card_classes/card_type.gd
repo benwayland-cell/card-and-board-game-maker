@@ -13,11 +13,11 @@ func _init(given_name: String, given_card_back_texture, given_sub_types: Array[C
 
 
 # returns a card with the given data
-func make_card(card_data : CardData) -> Card:
-	var sub_type = sub_types[card_data.sub_type_index]
-	var variable_nodes : Array[Node] = sub_type.get_card_nodes(card_data.node_dictionary)
+func make_card(sub_type_index : int, card_data_array : Array) -> Card:
+	var sub_type = sub_types[sub_type_index]
+	var variable_nodes : Array[Node] = sub_type.get_card_nodes(card_data_array)
 	
-	var card_to_return :Card= GlobalVariables.CARD_SCENE.instantiate()
+	var card_to_return : Card = GlobalVariables.CARD_SCENE.instantiate()
 	card_to_return.setup(sub_type.card_front_texture, card_back_texture, variable_nodes, Vector2.ZERO, true)
 	
 	return card_to_return
@@ -28,6 +28,6 @@ func make_deck() -> Array[Card]:
 	var new_deck : Array[Card] = []
 	
 	for card_data in deck:
-		new_deck.append(make_card(card_data))
+		new_deck.append(make_card(card_data.sub_type_index, card_data.card_data_array))
 	
 	return new_deck

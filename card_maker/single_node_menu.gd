@@ -2,23 +2,25 @@ extends VBoxContainer
 
 signal delete_button_pressed
 
-var node : Node
 var card_sub_type : CardSubType
-var node_location : CardSubType.NodeLocation
+var card_node : CardNode
+var node : Node
+var node_type : CardNode.NodeTypes
 
 
-func setup(given_node_location : CardSubType.NodeLocation, given_card_sub_type : CardSubType) -> void:
+func setup(given_card_node : CardNode, given_card_sub_type : CardSubType) -> void:
 	card_sub_type = given_card_sub_type
-	node_location = given_node_location
+	card_node = given_card_node
 	
-	match node_location.node_type:
-		GlobalVariables.NodeTypes.NUMBER_LABEL:
-			node = card_sub_type.number_labels[node_location.index]
+	node = card_node.node
+	node_type = card_node.node_type
+	
+	match node_type:
+		CardNode.NodeTypes.NUMBER_LABEL:
 			%ValueSpinBox.value = int(node.text)
 			%NumberHBoxContainer.show()
 		
-		GlobalVariables.NodeTypes.TEXT_LABEL:
-			node = card_sub_type.text_labels[node_location.index]
+		CardNode.NodeTypes.TEXT_LABEL:
 			%ValueLineEdit.text = node.text
 			%TextHBoxContainer.show()
 	
