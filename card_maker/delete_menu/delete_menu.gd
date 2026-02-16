@@ -5,9 +5,10 @@ signal choice_made
 var choice : bool
 
 
-func ask_to_delete_node(node_name : String) -> bool:
+func ask_to_delete(name_of_object : String) -> bool:
+	%NodeNameLabel.text = name_of_object
+	
 	visible = true
-	%NodeNameLabel.text = node_name
 	
 	await self.choice_made
 	

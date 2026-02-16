@@ -6,8 +6,11 @@ var card_types : Array[CardType] = []
 
 const CARD_SCENE :PackedScene= preload("res://card_scene/card.tscn")
 const RIGHT_CLICK_MENU_SCENE :PackedScene= preload("res://right_click_menu/right_click_menu.tscn")
-const TEST_CARD_FRONT_TEXTURE :Texture2D= preload("res://card_textures/Test Card.png")
-const TEST_CARD_BACK_TEXTURE :Texture2D= preload("res://card_textures/Test Card Back.png")
+const DEFAULT_FRONT_TEXTURE :Texture2D= preload("res://card_textures/Test Card.png")
+const DEFAULT_BACK_TEXTURE :Texture2D= preload("res://card_textures/Test Card Back.png")
+
+const SINGLE_TYPE_OPTION_SCENE : PackedScene = preload("res://card_maker/main_menu/single_type_option/single_type_option.tscn")
+const SINGLE_SUB_TYPE_OPTION_SCENE : PackedScene = preload("res://card_maker/card_type_menu/single_sub_type_option/single_sub_type_option.tscn")
 const SINGLE_NODE_MENU_SCENE : PackedScene = preload("res://card_maker/card_sub_type_menu/single_node_menu/single_node_menu.tscn")
 
 func _ready():
@@ -30,9 +33,9 @@ func _ready():
 	test_label2.text = "Lorem Ipsum"
 	var test_card_node2 := CardNode.new(test_label2, CardNode.NodeTypes.TEXT_LABEL)
 	
-	var test_sub_type := CardSubType.new("Test card sub type", TEST_CARD_FRONT_TEXTURE, [test_card_node1, test_card_node2])
+	var test_sub_type := CardSubType.new("Test card sub type", DEFAULT_FRONT_TEXTURE, [test_card_node1, test_card_node2])
 	
-	var test_card_type := CardType.new("Test card type", TEST_CARD_BACK_TEXTURE, [test_sub_type])
+	var test_card_type := CardType.new("Test card type", DEFAULT_BACK_TEXTURE, [test_sub_type])
 	test_card_type.deck = [
 		CardData.new(0, [1, "Test Text 1"]),
 		CardData.new(0, [2, "Test Text 2"]),
@@ -40,3 +43,16 @@ func _ready():
 		]
 	
 	card_types.append(test_card_type)
+
+
+func add_new_card_type() -> void:
+	var new_card_type := CardType.new(CardType.DEFAULT_CARD_TYPE_NAME, DEFAULT_BACK_TEXTURE, [])
+	card_types.append(new_card_type)
+
+
+func delete_card_type(card_type_to_delete : CardType) -> void:
+	for index in range(card_types.size()):
+		var card_type : CardType = card_types[index]
+		if card_type == card_type_to_delete:
+			card_types.remove_at(index)
+			return

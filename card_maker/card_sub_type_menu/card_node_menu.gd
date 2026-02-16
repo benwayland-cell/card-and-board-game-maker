@@ -31,7 +31,7 @@ func close() -> void:
 
 func _on_node_delete_button_pressed (node : Node):
 	# check if the user want to delete it
-	if not await %DeleteMenu.ask_to_delete_node(node.name):
+	if not await %DeleteMenu.ask_to_delete(node.name):
 		return
 	
 	card_sub_type.delete_node(node)

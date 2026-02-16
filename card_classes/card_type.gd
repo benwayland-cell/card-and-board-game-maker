@@ -1,5 +1,8 @@
 class_name CardType
 
+const DEFAULT_CARD_TYPE_NAME : String = "New Card Type"
+const DEFAULT_CARD_SUB_TYPE_NAME : String = "New Card Sub Type"
+
 var name: String
 var card_back_texture: Texture2D
 var sub_types: Array[CardSubType]
@@ -31,3 +34,16 @@ func make_deck() -> Array[Card]:
 		new_deck.append(make_card(card_data.sub_type_index, card_data.card_data_array))
 	
 	return new_deck
+
+
+func add_empty_sub_type() -> void:
+	var new_sub_type := CardSubType.new(DEFAULT_CARD_SUB_TYPE_NAME, GlobalVariables.DEFAULT_FRONT_TEXTURE, [])
+	sub_types.append(new_sub_type)
+
+
+func delete_sub_type(sub_type_to_delete : CardSubType) -> void:
+	for index in range(sub_types.size()):
+		var sub_type : CardSubType = sub_types[index]
+		if sub_type == sub_type_to_delete:
+			sub_types.remove_at(index)
+			return

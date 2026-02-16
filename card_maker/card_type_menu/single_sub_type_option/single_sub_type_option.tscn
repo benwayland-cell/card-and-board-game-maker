@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://djm0fj6tukwbr"]
+
+[ext_resource type="Script" uid="uid://dhvd4nn1lrcsr" path="res://card_maker/card_type_menu/single_sub_type_option/single_sub_type_option.gd" id="1_6kkyr"]
+
+[node name="SingleSubTypeOption" type="HBoxContainer" unique_id=1116225613]
+script = ExtResource("1_6kkyr")
+
+[node name="NameButton" type="Button" parent="." unique_id=2072032407]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Sub Type Name"
+
+[node name="DeleteButton" type="Button" parent="." unique_id=888006555]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Delete"
+
+[connection signal="pressed" from="NameButton" to="." method="_on_name_button_pressed"]
+[connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]
