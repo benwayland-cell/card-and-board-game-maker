@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c83viscthosp4"]
 
-[ext_resource type="Script" uid="uid://by253sa4tel0u" path="res://card_maker/delete_menu.gd" id="1_nro57"]
+[ext_resource type="Script" uid="uid://by253sa4tel0u" path="res://card_maker/delete_menu/delete_menu.gd" id="1_nro57"]
 
 [node name="DeleteMenu" type="ColorRect" unique_id=608963587]
 visible = false

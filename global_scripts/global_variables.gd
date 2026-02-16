@@ -8,7 +8,7 @@ const CARD_SCENE :PackedScene= preload("res://card_scene/card.tscn")
 const RIGHT_CLICK_MENU_SCENE :PackedScene= preload("res://right_click_menu/right_click_menu.tscn")
 const TEST_CARD_FRONT_TEXTURE :Texture2D= preload("res://card_textures/Test Card.png")
 const TEST_CARD_BACK_TEXTURE :Texture2D= preload("res://card_textures/Test Card Back.png")
-const SINGLE_NODE_MENU_SCENE : PackedScene = preload("res://card_maker/single_node_menu.tscn")
+const SINGLE_NODE_MENU_SCENE : PackedScene = preload("res://card_maker/card_sub_type_menu/single_node_menu/single_node_menu.tscn")
 
 func _ready():
 	# init simple_label_settings
