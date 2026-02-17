@@ -7,7 +7,7 @@ func _ready() -> void:
 	var test_card_type : CardType = GlobalVariables.card_types[0]
 	#print(test_card_type.name)
 	var test_stack : Stack = stack_scene.instantiate()
-	test_stack.add_cards(test_card_type.make_deck())
+	test_stack.add_cards(test_card_type.make_deck(0))
 	add_child(test_stack)
 	
 	

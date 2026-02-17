@@ -9,8 +9,7 @@ const RIGHT_CLICK_MENU_SCENE :PackedScene= preload("res://right_click_menu/right
 const DEFAULT_FRONT_TEXTURE :Texture2D= preload("res://card_textures/Test Card.png")
 const DEFAULT_BACK_TEXTURE :Texture2D= preload("res://card_textures/Test Card Back.png")
 
-const SINGLE_TYPE_OPTION_SCENE : PackedScene = preload("res://card_maker/main_menu/single_type_option/single_type_option.tscn")
-const SINGLE_SUB_TYPE_OPTION_SCENE : PackedScene = preload("res://card_maker/card_type_menu/single_sub_type_option/single_sub_type_option.tscn")
+const BUTTON_AND_DELETE_SCENE : PackedScene = preload("res://card_maker/button_and_delete/button_and_delete.tscn")
 const SINGLE_NODE_MENU_SCENE : PackedScene = preload("res://card_maker/card_sub_type_menu/single_node_menu/single_node_menu.tscn")
 
 func _ready():
@@ -36,10 +35,26 @@ func _ready():
 	var test_sub_type := CardSubType.new("Test card sub type", DEFAULT_FRONT_TEXTURE, [test_card_node1, test_card_node2])
 	
 	var test_card_type := CardType.new("Test card type", DEFAULT_BACK_TEXTURE, [test_sub_type])
-	test_card_type.deck = [
-		CardData.new(0, [1, "Test Text 1"]),
-		CardData.new(0, [2, "Test Text 2"]),
-		CardData.new(0, [null, null])
+	
+	var test_card1 : Dictionary[CardNode, Variant] = {
+		test_card_node1: 10,
+		test_card_node2: "Test Text 1",
+	}
+	var test_card2 : Dictionary[CardNode, Variant] = {
+		test_card_node1: 20,
+		test_card_node2: "Test Text 2",
+	}
+	var test_card3 : Dictionary[CardNode, Variant] = {
+		test_card_node1: null,
+		test_card_node2: null,
+	}
+	
+	test_card_type.decks = [
+		Deck.new([
+			CardData.new(0, test_card1),
+			CardData.new(0, test_card2),
+			CardData.new(0, test_card3),
+		])
 		]
 	
 	card_types.append(test_card_type)

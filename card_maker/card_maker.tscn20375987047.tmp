@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://d5s2gy6wf3v8" path="res://card_maker/card_type_menu/deck_options.gd" id="5_gehi0"]
 [ext_resource type="Script" uid="uid://cuxnpyi87lbx8" path="res://card_maker/card_sub_type_menu/card_sub_type_menu.gd" id="5_qg2o8"]
 [ext_resource type="Script" uid="uid://do5i77vx5jwbw" path="res://card_maker/card_sub_type_menu/card_node_menu.gd" id="6_gfq1c"]
-[ext_resource type="Script" uid="uid://c363idbyj5grf" path="res://card_maker/deck_menu/deck_menu.gd" id="8_0v7x4"]
 [ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://card_textures/empty_card_sprite.png" id="8_hc6fa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f5pdp"]
@@ -93,7 +92,6 @@ text = "+ Card Type"
 
 [node name="CardTypeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus" unique_id=215457526]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 script = ExtResource("3_pkqwu")
 
@@ -175,11 +173,6 @@ text = "+ Number Label"
 layout_mode = 2
 size_flags_horizontal = 0
 text = "+ Text Label"
-
-[node name="DeckMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus" unique_id=1515768402]
-visible = false
-layout_mode = 2
-script = ExtResource("8_0v7x4")
 
 [node name="DeleteMenu" parent="CanvasLayer" unique_id=608963587 instance=ExtResource("2_hc6fa")]
 unique_name_in_owner = true

@@ -10,7 +10,7 @@ func setup(given_card_type : CardType) -> void:
 
 func _setup_buttons() -> void:
 	for sub_type in sub_types:
-		var new_sub_type_option : SingleSubTypeOption = GlobalVariables.SINGLE_SUB_TYPE_OPTION_SCENE.instantiate()
+		var new_sub_type_option : ButtonAndDelete = GlobalVariables.BUTTON_AND_DELETE_SCENE.instantiate()
 		new_sub_type_option.setup(sub_type)
 		new_sub_type_option.connect("name_button_pressed", _on_button_pressed)
 		new_sub_type_option.connect("delete_button_pressed", _on_delete_button_pressed)

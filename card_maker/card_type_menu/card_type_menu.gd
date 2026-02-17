@@ -15,12 +15,15 @@ func open() -> void:
 	visible = true
 	%CardTypeNameBox.text = card_type.name
 	%SubTypeOptions.setup(card_type)
+	%DeckOptions.setup(card_type)
 	%CardBackground.texture = card_type.card_back_texture
 
 
 func close() -> void:
 	visible = false
 	%SubTypeOptions.close()
+	%DeckOptions.close()
+
 
 func _on_back_button_pressed() -> void:
 	if visible:

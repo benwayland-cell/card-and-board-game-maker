@@ -13,7 +13,7 @@ func _setup_nodes() -> void:
 		var single_node_menu := GlobalVariables.SINGLE_NODE_MENU_SCENE.instantiate()
 		single_node_menu.setup(current_card_node, card_sub_type)
 		single_node_menu.connect("delete_button_pressed", _on_node_delete_button_pressed)
-		%SingleNodeMenus.add_child(single_node_menu)
+		add_child(single_node_menu)
 
 
 func _reset_nodes() -> void:
@@ -22,7 +22,7 @@ func _reset_nodes() -> void:
 
 
 func close() -> void:
-	for child in %SingleNodeMenus.get_children():
+	for child in get_children():
 		child.queue_free()
 	
 	for child in %CardBackground.get_children():

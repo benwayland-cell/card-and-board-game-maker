@@ -18,15 +18,17 @@ func _init(given_name: String, given_card_front_texture: Texture2D, given_card_n
 
 
 # returns a list of all of the nodes with updated values
-func get_card_nodes(card_data_array : Array) -> Array[Node]:
+func get_card_nodes(card_data_dict : Dictionary[CardNode, Variant]) -> Array[Node]:
 	var nodes_to_return : Array[Node] = []
-	assert(card_data_array.size() == card_nodes.size())
 	
 	for index in range(card_nodes.size()):
 		var card_node : CardNode = card_nodes[index]
-		
 		var new_node = card_node.node.duplicate()
-		var current_value = card_data_array[index]
+		
+		if not card_data_dict.has(card_node):
+			continue
+		
+		var current_value = card_data_dict[card_node]
 		
 		# leave the value to its default if null
 		if current_value == null:

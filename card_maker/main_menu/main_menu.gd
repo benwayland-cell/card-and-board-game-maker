@@ -7,7 +7,7 @@ func open() -> void:
 	
 	# set up the buttons for each card type
 	for card_type in GlobalVariables.card_types:
-		var new_single_type_option : SingleTypeOption = GlobalVariables.SINGLE_TYPE_OPTION_SCENE.instantiate()
+		var new_single_type_option : ButtonAndDelete = GlobalVariables.BUTTON_AND_DELETE_SCENE.instantiate()
 		new_single_type_option.setup(card_type)
 		new_single_type_option.connect("name_button_pressed", _on_button_pressed)
 		new_single_type_option.connect("delete_button_pressed", _on_delete_button_pressed)

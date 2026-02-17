@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfagx5okkfala"]
 
-[ext_resource type="Script" uid="uid://cghwtnu5fy4o2" path="res://card_maker/card_sub_type_menu/single_node_menu/single_node_menu.gd" id="1_k1pjh"]
+[ext_resource type="Script" uid="uid://cghwtnu5fy4o2" path="res://card_maker/card_sub_type_menu/single_node_menu/single_node_menu.gd" id="1_43t54"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k1pjh"]
 font_color = Color(0, 0, 0, 1)
@@ -22,7 +22,7 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="SingleNodeMenu" type="VBoxContainer" unique_id=764371061]
 size_flags_horizontal = 3
-script = ExtResource("1_k1pjh")
+script = ExtResource("1_43t54")
 
 [node name="NameHBox" type="HBoxContainer" parent="." unique_id=34882864]
 layout_mode = 2

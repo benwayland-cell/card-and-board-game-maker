@@ -6,7 +6,7 @@ const DEFAULT_CARD_SUB_TYPE_NAME : String = "New Card Sub Type"
 var name: String
 var card_back_texture: Texture2D
 var sub_types: Array[CardSubType]
-var deck : Array[CardData]
+var decks : Array[Deck]
 
 
 func _init(given_name: String, given_card_back_texture, given_sub_types: Array[CardSubType]) -> void:
@@ -16,9 +16,9 @@ func _init(given_name: String, given_card_back_texture, given_sub_types: Array[C
 
 
 # returns a card with the given data
-func make_card(sub_type_index : int, card_data_array : Array) -> Card:
+func make_card(sub_type_index : int, card_data_dict : Dictionary[CardNode, Variant]) -> Card:
 	var sub_type = sub_types[sub_type_index]
-	var variable_nodes : Array[Node] = sub_type.get_card_nodes(card_data_array)
+	var variable_nodes : Array[Node] = sub_type.get_card_nodes(card_data_dict)
 	
 	var card_to_return : Card = GlobalVariables.CARD_SCENE.instantiate()
 	card_to_return.setup(sub_type.card_front_texture, card_back_texture, variable_nodes, Vector2.ZERO, true)
@@ -27,11 +27,12 @@ func make_card(sub_type_index : int, card_data_array : Array) -> Card:
 
 
 # Returns an array for the cards in the deck variable
-func make_deck() -> Array[Card]:
+func make_deck(deck_index : int) -> Array[Card]:
 	var new_deck : Array[Card] = []
 	
-	for card_data in deck:
-		new_deck.append(make_card(card_data.sub_type_index, card_data.card_data_array))
+	for card_data in decks[deck_index].deck_data:
+		var new_card : Card = make_card(card_data.sub_type_index, card_data.card_data_dict)
+		new_deck.append(new_card)
 	
 	return new_deck
 
