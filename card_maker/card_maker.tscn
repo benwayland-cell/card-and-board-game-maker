@@ -2,35 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dsykc8glp6ena" path="res://card_maker/camera_controller.gd" id="1_c371m"]
 [ext_resource type="Script" uid="uid://boei65gut0jib" path="res://card_maker/card_maker.gd" id="1_y4jyd"]
+[ext_resource type="Script" uid="uid://dtgxrxfycg5ce" path="res://card_maker/menu_container.gd" id="2_h5agh"]
 [ext_resource type="PackedScene" uid="uid://c83viscthosp4" path="res://card_maker/delete_menu/delete_menu.tscn" id="2_hc6fa"]
-[ext_resource type="Script" uid="uid://bjp83ock7qkpx" path="res://card_maker/main_menu/main_menu.gd" id="2_pkqwu"]
-[ext_resource type="Script" uid="uid://caa505xmgps1q" path="res://card_maker/card_type_menu/card_type_menu.gd" id="3_pkqwu"]
-[ext_resource type="Script" uid="uid://dhvxiun770ipn" path="res://card_maker/card_type_menu/sub_type_options.gd" id="4_h5agh"]
-[ext_resource type="Script" uid="uid://d5s2gy6wf3v8" path="res://card_maker/card_type_menu/deck_options.gd" id="5_gehi0"]
-[ext_resource type="Script" uid="uid://cuxnpyi87lbx8" path="res://card_maker/card_sub_type_menu/card_sub_type_menu.gd" id="5_qg2o8"]
-[ext_resource type="Script" uid="uid://do5i77vx5jwbw" path="res://card_maker/card_sub_type_menu/card_node_menu.gd" id="6_gfq1c"]
-[ext_resource type="Script" uid="uid://c363idbyj5grf" path="res://card_maker/deck_menu/deck_menu.gd" id="8_0v7x4"]
 [ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://card_textures/empty_card_sprite.png" id="8_hc6fa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f5pdp"]
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_pkqwu"]
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_hc6fa"]
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_gehi0"]
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_gfq1c"]
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_0v7x4"]
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_iy8t7"]
 font_color = Color(0, 0, 0, 1)
 
 [node name="CardMaker" type="Node2D" unique_id=834646800]
@@ -38,187 +14,49 @@ script = ExtResource("1_y4jyd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1753650922]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1433512832]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1974850130]
 custom_minimum_size = Vector2(500, 0)
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -200.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer" unique_id=1974850130]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer" unique_id=849539420]
-layout_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect" unique_id=849539420]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 648.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/MarginContainer" unique_id=1221069145]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ColorRect/MarginContainer" unique_id=1221069145]
 layout_mode = 2
 
-[node name="MainVBox" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer" unique_id=1700691432]
+[node name="MainVBox" type="VBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/ScrollContainer" unique_id=1700691432]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="Top Menu" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox" unique_id=126985144]
+[node name="Top Menu" type="HBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/ScrollContainer/MainVBox" unique_id=126985144]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Top Menu" unique_id=772175450]
+[node name="BackButton" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/ScrollContainer/MainVBox/Top Menu" unique_id=772175450]
 layout_mode = 2
 text = "<"
 
-[node name="MenuName" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Top Menu" unique_id=1765335954]
+[node name="MenuName" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/ScrollContainer/MainVBox/Top Menu" unique_id=1765335954]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Empty Menu Name"
 label_settings = SubResource("LabelSettings_f5pdp")
 
-[node name="Menus" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox" unique_id=841541817]
+[node name="MenuContainer" type="MarginContainer" parent="CanvasLayer/ColorRect/MarginContainer/ScrollContainer/MainVBox" unique_id=1177026145]
 layout_mode = 2
-
-[node name="MainMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus" unique_id=1818354919]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-script = ExtResource("2_pkqwu")
-
-[node name="CardTypeOptionsMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/MainMenu" unique_id=256063945]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="+CardTypeButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/MainMenu" unique_id=2004824152]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "+ Card Type"
-
-[node name="CardTypeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus" unique_id=215457526]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-script = ExtResource("3_pkqwu")
-
-[node name="NameEntry" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" unique_id=824166168]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu/NameEntry" unique_id=402906220]
-layout_mode = 2
-text = "Name:"
-label_settings = SubResource("LabelSettings_pkqwu")
-
-[node name="CardTypeNameBox" type="LineEdit" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu/NameEntry" unique_id=992329982]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Card Type Name"
-
-[node name="SubTypeOptionsLabel" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" unique_id=403041838]
-layout_mode = 2
-text = "Sub Types:"
-label_settings = SubResource("LabelSettings_hc6fa")
-
-[node name="SubTypeOptions" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" unique_id=614346063]
-unique_name_in_owner = true
-layout_mode = 2
-script = ExtResource("4_h5agh")
-
-[node name="AddSubTypeButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" unique_id=903079247]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "+ Sub Type"
-
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" unique_id=665252281]
-layout_mode = 2
-text = "Decks:"
-label_settings = SubResource("LabelSettings_gehi0")
-
-[node name="DeckOptions" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" unique_id=1835075725]
-unique_name_in_owner = true
-layout_mode = 2
-script = ExtResource("5_gehi0")
-
-[node name="AddDeckButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" unique_id=198558205]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "+ Deck"
-
-[node name="CardSubTypeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus" unique_id=1985312865]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-theme_override_constants/separation = 20
-script = ExtResource("5_qg2o8")
-
-[node name="NameEntry" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" unique_id=628819226]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NameEntry" unique_id=1824979245]
-layout_mode = 2
-text = "Name:"
-label_settings = SubResource("LabelSettings_gfq1c")
-
-[node name="CardSubTypeNameBox" type="LineEdit" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NameEntry" unique_id=1085896709]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Sub Type Name"
-
-[node name="CardNodeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" unique_id=895917820]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 20
-script = ExtResource("6_gfq1c")
-
-[node name="NewNodeButtons" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" unique_id=1451445005]
-layout_mode = 2
-
-[node name="+NumberLabelButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NewNodeButtons" unique_id=729248232]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "+ Number Label"
-
-[node name="+TextLabelButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NewNodeButtons" unique_id=324069482]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "+ Text Label"
-
-[node name="DeckMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus" unique_id=1515768402]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-script = ExtResource("8_0v7x4")
-
-[node name="NameEntry" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" unique_id=2089115733]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu/NameEntry" unique_id=1370996836]
-layout_mode = 2
-text = "Name: "
-label_settings = SubResource("LabelSettings_0v7x4")
-
-[node name="DeckNameLineEdit" type="LineEdit" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu/NameEntry" unique_id=105177402]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CardsLabel" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" unique_id=1153418932]
-layout_mode = 2
-text = "Cards:"
-label_settings = SubResource("LabelSettings_iy8t7")
-
-[node name="SingleCardMenus" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" unique_id=1398764707]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="AddCardButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" unique_id=1363506832]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "+ Card"
+script = ExtResource("2_h5agh")
 
 [node name="DeleteMenu" parent="CanvasLayer" unique_id=608963587 instance=ExtResource("2_hc6fa")]
 unique_name_in_owner = true
@@ -231,15 +69,4 @@ unique_name_in_owner = true
 position = Vector2(-187, 19)
 texture = ExtResource("8_hc6fa")
 
-[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_back_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_back_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" method="_on_back_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/MainMenu/+CardTypeButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/MainMenu" method="_on_card_type_button_pressed"]
-[connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu/NameEntry/CardTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_card_type_name_box_text_submitted"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu/AddSubTypeButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_add_sub_type_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu/AddDeckButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_add_deck_button_pressed"]
-[connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NameEntry/CardSubTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_card_sub_type_name_box_text_submitted"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NewNodeButtons/+NumberLabelButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu" method="_on_number_label_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NewNodeButtons/+TextLabelButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu" method="_on_text_label_button_pressed"]
-[connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu/NameEntry/DeckNameLineEdit" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" method="_on_deck_name_line_edit_text_submitted"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu/AddCardButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" method="_on_add_card_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/MarginContainer/ScrollContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/ColorRect/MarginContainer/ScrollContainer/MainVBox/MenuContainer" method="_on_back_button_pressed"]

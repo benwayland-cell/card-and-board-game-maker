@@ -38,11 +38,9 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 	if new_text == "":
 		new_text = card_node.node.text
 	
-	card_node.node.text = new_text
 	card_data.card_data_dict[card_node] = new_text
 
 
 func _on_spin_box_value_changed(new_value: float) -> void:
 	assert(card_node.node_type == CardNode.NodeTypes.NUMBER_LABEL)
-	card_node.node.text = str(int(new_value))
 	card_data.card_data_dict[card_node] = int(new_value)

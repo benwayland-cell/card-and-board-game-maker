@@ -9,6 +9,11 @@ const RIGHT_CLICK_MENU_SCENE :PackedScene= preload("res://right_click_menu/right
 const DEFAULT_FRONT_TEXTURE :Texture2D= preload("res://card_textures/Test Card.png")
 const DEFAULT_BACK_TEXTURE :Texture2D= preload("res://card_textures/Test Card Back.png")
 
+const MAIN_MENU_SCENE : PackedScene = preload("res://card_maker/main_menu/main_menu.tscn")
+const CARD_TYPE_MENU_SCENE : PackedScene = preload("res://card_maker/card_type_menu/card_type_menu.tscn")
+const CARD_SUB_TYPE_MENU : PackedScene = preload("res://card_maker/card_sub_type_menu/card_sub_type_menu.tscn")
+const DECK_MENU : PackedScene = preload("res://card_maker/deck_menu/deck_menu.tscn")
+
 const BUTTON_AND_DELETE_SCENE : PackedScene = preload("res://card_maker/button_and_delete/button_and_delete.tscn")
 const SINGLE_CARD_MENU_SCENE : PackedScene = preload("res://card_maker/deck_menu/single_card_menu/single_card_menu.tscn")
 const SINGLE_CARD_NODE_MENU_SCENE : PackedScene = preload("res://card_maker/deck_menu/single_card_menu/single_card_node_menu/single_card_node_menu.tscn") # this is used by deck menu

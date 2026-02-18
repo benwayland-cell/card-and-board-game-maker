@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://rx7otgyu78j1"]
+
+[ext_resource type="Script" uid="uid://c363idbyj5grf" path="res://card_maker/deck_menu/deck_menu.gd" id="1_7ttrw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0v7x4"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iy8t7"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="DeckMenu" type="VBoxContainer" unique_id=931119821]
+script = ExtResource("1_7ttrw")
+
+[node name="NameEntry" type="HBoxContainer" parent="." unique_id=1997196197]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NameEntry" unique_id=1754438914]
+layout_mode = 2
+text = "Name: "
+label_settings = SubResource("LabelSettings_0v7x4")
+
+[node name="DeckNameLineEdit" type="LineEdit" parent="NameEntry" unique_id=1524622009]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CardsLabel" type="Label" parent="." unique_id=2008520305]
+layout_mode = 2
+text = "Cards:"
+label_settings = SubResource("LabelSettings_iy8t7")
+
+[node name="SingleCardMenus" type="VBoxContainer" parent="." unique_id=474748848]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AddCardButton" type="Button" parent="." unique_id=1006938764]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+ Card"
+
+[connection signal="text_submitted" from="NameEntry/DeckNameLineEdit" to="." method="_on_deck_name_line_edit_text_submitted"]
+[connection signal="pressed" from="AddCardButton" to="." method="_on_add_card_button_pressed"]

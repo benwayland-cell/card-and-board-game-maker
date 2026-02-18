@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bvtq70l0nipgh"]
+
+[ext_resource type="Script" uid="uid://bjp83ock7qkpx" path="res://card_maker/main_menu/main_menu.gd" id="1_mu0fb"]
+
+[node name="MainMenu" type="VBoxContainer" unique_id=920326017]
+script = ExtResource("1_mu0fb")
+
+[node name="CardTypeOptionsMenu" type="VBoxContainer" parent="." unique_id=1371155580]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="+CardTypeButton" type="Button" parent="." unique_id=158170638]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+ Card Type"
+
+[connection signal="pressed" from="+CardTypeButton" to="." method="_on_card_type_button_pressed"]

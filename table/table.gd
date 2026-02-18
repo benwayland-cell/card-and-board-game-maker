@@ -9,11 +9,3 @@ func _ready() -> void:
 	var test_stack : Stack = stack_scene.instantiate()
 	test_stack.add_cards(test_card_type.make_deck(0))
 	add_child(test_stack)
-	
-	
-	
-	
-	#for card in test_stack.cards:
-		#print(card.get_variable_data())
-	
-	#print(GlobalVariables.card_types[0].sub_types[0].get_node_dictionary())

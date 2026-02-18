@@ -1,34 +1,39 @@
-extends VBoxContainer
+extends CardMakerMenu
 
 var card_type: CardType
 
+const BACK_BUTTON_MENU: PackedScene= GlobalVariables.MAIN_MENU_SCENE
 
-# opens the menu with the data of a card type
-func open_card_type(given_card_type : CardType) -> void:
+func setup_card_type_menu(given_card_type : CardType) -> void:
 	card_type = given_card_type
-	open()
+	_setup_children()
 
 
-# opens the menu in its current state
-func open() -> void:
-	%MenuName.text = card_type.name
-	visible = true
+func _setup_children() -> void:
+	change_menu_name.emit(card_type.name)
 	%CardTypeNameBox.text = card_type.name
 	%SubTypeOptions.setup(card_type)
 	%DeckOptions.setup(card_type)
-	%CardBackground.texture = card_type.card_back_texture
+	change_card_background.emit(card_type.card_back_texture)
 
 
 func close() -> void:
-	visible = false
 	%SubTypeOptions.close()
 	%DeckOptions.close()
 
 
-func _on_back_button_pressed() -> void:
-	if visible:
-		close()
-		%MainMenu.open()
+func reset() -> void:
+	close()
+	_setup_children()
+
+
+func on_back_button_pressed() -> void:
+	print(GlobalVariables.MAIN_MENU_SCENE)
+	var new_menu: CardMakerMenu= BACK_BUTTON_MENU.instantiate()
+	new_menu.setup_main_menu()
+	add_sibling(new_menu)
+	connect_to_new_menu.emit(new_menu)
+	queue_free()
 
 
 func _on_card_type_name_box_text_submitted(new_text: String) -> void:

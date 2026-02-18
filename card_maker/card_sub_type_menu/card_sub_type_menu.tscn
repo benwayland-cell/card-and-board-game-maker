@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://by8uov57xfgqo"]
+
+[ext_resource type="Script" uid="uid://cuxnpyi87lbx8" path="res://card_maker/card_sub_type_menu/card_sub_type_menu.gd" id="1_i83ge"]
+[ext_resource type="Script" uid="uid://do5i77vx5jwbw" path="res://card_maker/card_sub_type_menu/card_node_menu.gd" id="2_sdsrd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gfq1c"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="CardSubTypeMenu" type="VBoxContainer" unique_id=1935784762]
+theme_override_constants/separation = 20
+script = ExtResource("1_i83ge")
+
+[node name="NameEntry" type="HBoxContainer" parent="." unique_id=1766391757]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NameEntry" unique_id=1932726034]
+layout_mode = 2
+text = "Name:"
+label_settings = SubResource("LabelSettings_gfq1c")
+
+[node name="CardSubTypeNameBox" type="LineEdit" parent="NameEntry" unique_id=718489430]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Sub Type Name"
+
+[node name="CardNodeMenu" type="VBoxContainer" parent="." unique_id=1529119827]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+script = ExtResource("2_sdsrd")
+
+[node name="NewNodeButtons" type="VBoxContainer" parent="." unique_id=1849623070]
+layout_mode = 2
+
+[node name="+NumberLabelButton" type="Button" parent="NewNodeButtons" unique_id=1398609950]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+ Number Label"
+
+[node name="+TextLabelButton" type="Button" parent="NewNodeButtons" unique_id=1690816757]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+ Text Label"
+
+[connection signal="text_submitted" from="NameEntry/CardSubTypeNameBox" to="." method="_on_card_sub_type_name_box_text_submitted"]
+[connection signal="pressed" from="NewNodeButtons/+NumberLabelButton" to="CardNodeMenu" method="_on_number_label_button_pressed"]
+[connection signal="pressed" from="NewNodeButtons/+TextLabelButton" to="CardNodeMenu" method="_on_text_label_button_pressed"]

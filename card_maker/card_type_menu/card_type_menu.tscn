@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dgeflyhrb4aka"]
+
+[ext_resource type="Script" uid="uid://caa505xmgps1q" path="res://card_maker/card_type_menu/card_type_menu.gd" id="1_ad32r"]
+[ext_resource type="Script" uid="uid://dhvxiun770ipn" path="res://card_maker/card_type_menu/sub_type_options.gd" id="2_wokr0"]
+[ext_resource type="Script" uid="uid://d5s2gy6wf3v8" path="res://card_maker/card_type_menu/deck_options.gd" id="3_rrxav"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pkqwu"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hc6fa"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gehi0"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="CardTypeMenu" type="VBoxContainer" unique_id=1014922926]
+script = ExtResource("1_ad32r")
+
+[node name="NameEntry" type="HBoxContainer" parent="." unique_id=459828993]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NameEntry" unique_id=2107180779]
+layout_mode = 2
+text = "Name:"
+label_settings = SubResource("LabelSettings_pkqwu")
+
+[node name="CardTypeNameBox" type="LineEdit" parent="NameEntry" unique_id=1119596534]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Card Type Name"
+
+[node name="SubTypeOptionsLabel" type="Label" parent="." unique_id=325330052]
+layout_mode = 2
+text = "Sub Types:"
+label_settings = SubResource("LabelSettings_hc6fa")
+
+[node name="SubTypeOptions" type="VBoxContainer" parent="." unique_id=1690116782]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_wokr0")
+
+[node name="AddSubTypeButton" type="Button" parent="." unique_id=1946962108]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+ Sub Type"
+
+[node name="Label" type="Label" parent="." unique_id=1807966659]
+layout_mode = 2
+text = "Decks:"
+label_settings = SubResource("LabelSettings_gehi0")
+
+[node name="DeckOptions" type="VBoxContainer" parent="." unique_id=2012018100]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("3_rrxav")
+
+[node name="AddDeckButton" type="Button" parent="." unique_id=729262407]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+ Deck"
+
+[connection signal="text_submitted" from="NameEntry/CardTypeNameBox" to="." method="_on_card_type_name_box_text_submitted"]
+[connection signal="pressed" from="AddSubTypeButton" to="." method="_on_add_sub_type_button_pressed"]
+[connection signal="pressed" from="AddDeckButton" to="." method="_on_add_deck_button_pressed"]
