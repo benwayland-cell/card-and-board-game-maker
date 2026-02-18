@@ -8,7 +8,9 @@ var decks : Array[Deck]
 func setup(given_card_type : CardType) -> void:
 	card_type = given_card_type
 	decks = card_type.decks
-	
+	_setup_buttons()
+
+func _setup_buttons() -> void:
 	for deck in decks:
 		var new_button_and_delete : ButtonAndDelete = GlobalVariables.BUTTON_AND_DELETE_SCENE.instantiate()
 		new_button_and_delete.setup(deck)
@@ -22,9 +24,16 @@ func close() -> void:
 		child.queue_free()
 
 
+func reset() -> void:
+	close()
+	_setup_buttons()
+
+
 func _on_button_pressed(deck : Deck) -> void:
-	pass
+	%CardTypeMenu.close()
+	%DeckMenu.open_with_deck(card_type, deck)
 
 
 func _on_delete_button_pressed(deck : Deck) -> void:
-	pass
+	card_type.delete_deck(deck)
+	reset()

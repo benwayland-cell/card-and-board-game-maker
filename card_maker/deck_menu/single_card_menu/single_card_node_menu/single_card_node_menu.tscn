@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bpj83gvtxo6yw"]
+
+[ext_resource type="Script" uid="uid://dfghdcldf2cp8" path="res://card_maker/deck_menu/single_card_menu/single_card_node_menu/single_card_node_menu.gd" id="1_pkp4g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_30ha2"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="SingleCardNodeMenu" type="HBoxContainer" unique_id=1878765024]
+size_flags_horizontal = 3
+script = ExtResource("1_pkp4g")
+
+[node name="NameLabel" type="Label" parent="." unique_id=896085704]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Node Name:"
+label_settings = SubResource("LabelSettings_30ha2")
+
+[node name="ValueContainer" type="MarginContainer" parent="." unique_id=2104670196]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+
+[node name="LineEdit" type="LineEdit" parent="ValueContainer" unique_id=1568918789]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+emoji_menu_enabled = false
+
+[node name="SpinBox" type="SpinBox" parent="ValueContainer" unique_id=1925786055]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[connection signal="text_submitted" from="ValueContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="value_changed" from="ValueContainer/SpinBox" to="." method="_on_spin_box_value_changed"]

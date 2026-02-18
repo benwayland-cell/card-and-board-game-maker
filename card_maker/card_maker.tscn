@@ -27,6 +27,12 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_gfq1c"]
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_0v7x4"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iy8t7"]
+font_color = Color(0, 0, 0, 1)
+
 [node name="CardMaker" type="Node2D" unique_id=834646800]
 script = ExtResource("1_y4jyd")
 
@@ -136,6 +142,11 @@ unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("5_gehi0")
 
+[node name="AddDeckButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" unique_id=198558205]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+ Deck"
+
 [node name="CardSubTypeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus" unique_id=1985312865]
 unique_name_in_owner = true
 visible = false
@@ -177,9 +188,37 @@ size_flags_horizontal = 0
 text = "+ Text Label"
 
 [node name="DeckMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus" unique_id=1515768402]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 script = ExtResource("8_0v7x4")
+
+[node name="NameEntry" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" unique_id=2089115733]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu/NameEntry" unique_id=1370996836]
+layout_mode = 2
+text = "Name: "
+label_settings = SubResource("LabelSettings_0v7x4")
+
+[node name="DeckNameLineEdit" type="LineEdit" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu/NameEntry" unique_id=105177402]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CardsLabel" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" unique_id=1153418932]
+layout_mode = 2
+text = "Cards:"
+label_settings = SubResource("LabelSettings_iy8t7")
+
+[node name="SingleCardMenus" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" unique_id=1398764707]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AddCardButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" unique_id=1363506832]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+ Card"
 
 [node name="DeleteMenu" parent="CanvasLayer" unique_id=608963587 instance=ExtResource("2_hc6fa")]
 unique_name_in_owner = true
@@ -194,9 +233,13 @@ texture = ExtResource("8_hc6fa")
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/MainMenu/+CardTypeButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/MainMenu" method="_on_card_type_button_pressed"]
 [connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu/NameEntry/CardTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_card_type_name_box_text_submitted"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu/AddSubTypeButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_add_sub_type_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu/AddDeckButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_add_deck_button_pressed"]
 [connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NameEntry/CardSubTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_card_sub_type_name_box_text_submitted"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NewNodeButtons/+NumberLabelButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu" method="_on_number_label_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NewNodeButtons/+TextLabelButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu" method="_on_text_label_button_pressed"]
+[connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu/NameEntry/DeckNameLineEdit" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" method="_on_deck_name_line_edit_text_submitted"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu/AddCardButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" method="_on_add_card_button_pressed"]

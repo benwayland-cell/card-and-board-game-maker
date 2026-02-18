@@ -37,8 +37,8 @@ func get_card_nodes(card_data_dict : Dictionary[CardNode, Variant]) -> Array[Nod
 		
 		match card_node.node_type:
 			CardNode.NodeTypes.NUMBER_LABEL:
-				assert(new_node is Label)
-				assert(current_value is int)
+				assert(new_node is Label, "Failed node: %s" % new_node)
+				assert(current_value is int, "Failed value: %s" % current_value)
 				new_node.text = str(current_value)
 			
 			CardNode.NodeTypes.TEXT_LABEL:

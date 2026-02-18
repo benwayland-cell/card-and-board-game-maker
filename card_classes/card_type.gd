@@ -48,3 +48,16 @@ func delete_sub_type(sub_type_to_delete : CardSubType) -> void:
 		if sub_type == sub_type_to_delete:
 			sub_types.remove_at(index)
 			return
+
+
+func add_empty_deck() -> void:
+	var new_deck := Deck.new([])
+	decks.append(new_deck)
+
+
+func delete_deck(deck_to_delete : Deck) -> void:
+	for index in range(decks.size()):
+		var deck = decks[index]
+		if deck == deck_to_delete:
+			decks.remove_at(index)
+			return

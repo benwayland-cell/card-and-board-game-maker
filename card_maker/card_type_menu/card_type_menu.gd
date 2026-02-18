@@ -45,3 +45,8 @@ func _on_card_type_name_box_text_submitted(new_text: String) -> void:
 func _on_add_sub_type_button_pressed() -> void:
 	card_type.add_empty_sub_type()
 	%SubTypeOptions.reset()
+
+
+func _on_add_deck_button_pressed() -> void:
+	card_type.add_empty_deck()
+	%DeckOptions.reset()

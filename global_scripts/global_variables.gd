@@ -10,7 +10,9 @@ const DEFAULT_FRONT_TEXTURE :Texture2D= preload("res://card_textures/Test Card.p
 const DEFAULT_BACK_TEXTURE :Texture2D= preload("res://card_textures/Test Card Back.png")
 
 const BUTTON_AND_DELETE_SCENE : PackedScene = preload("res://card_maker/button_and_delete/button_and_delete.tscn")
-const SINGLE_NODE_MENU_SCENE : PackedScene = preload("res://card_maker/card_sub_type_menu/single_node_menu/single_node_menu.tscn")
+const SINGLE_CARD_MENU_SCENE : PackedScene = preload("res://card_maker/deck_menu/single_card_menu/single_card_menu.tscn")
+const SINGLE_CARD_NODE_MENU_SCENE : PackedScene = preload("res://card_maker/deck_menu/single_card_menu/single_card_node_menu/single_card_node_menu.tscn") # this is used by deck menu
+const SINGLE_NODE_MENU_SCENE : PackedScene = preload("res://card_maker/card_sub_type_menu/single_node_menu/single_node_menu.tscn") # this is used by sub type menu
 
 func _ready():
 	# init simple_label_settings
