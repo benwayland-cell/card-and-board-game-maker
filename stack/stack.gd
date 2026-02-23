@@ -1,6 +1,8 @@
 extends Node2D
 class_name Stack
 
+@export var shuffle_deck: bool= true
+
 var empty_texture : Texture2D
 var cards : Array [Card]
 var mouse_is_overlapping := false
@@ -85,3 +87,12 @@ func add_cards(new_cards : Array[Card]):
 	
 	# show the top card of the stack
 	add_child(cards[-1])
+
+
+func add_deck(deck: Deck, card_type: CardType) -> void:
+	var card_array: Array[Card] = deck.to_card_array(card_type)
+	
+	if shuffle_deck:
+		card_array.shuffle()
+	
+	add_cards(card_array)

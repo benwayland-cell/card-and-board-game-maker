@@ -6,10 +6,10 @@
 [node name="Table" type="Node2D" unique_id=194097759]
 script = ExtResource("1_7tbl0")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1840160959]
+[node name="Background" type="CanvasLayer" parent="." unique_id=1840160959]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1496888344]
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1496888344]
 offset_left = -46.0
 offset_top = -45.0
 offset_right = 1177.0

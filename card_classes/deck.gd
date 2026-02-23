@@ -31,3 +31,13 @@ func delete_card(card_data_to_delete: CardData) -> void:
 func add_new_card() -> void:
 	var new_card_data_dict: Dictionary[CardNode, Variant]= {}
 	deck_data.append(CardData.new(-1, new_card_data_dict))
+
+
+func to_card_array(card_type: CardType) -> Array[Card]:
+	var cards_to_return: Array[Card] = []
+	
+	for card_data in deck_data:
+		var new_card: Card = card_data.to_card(card_type)
+		cards_to_return.append(new_card)
+	
+	return cards_to_return

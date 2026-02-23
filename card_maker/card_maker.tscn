@@ -101,6 +101,7 @@ text = "+ Card Type"
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+theme_override_constants/separation = 10
 script = ExtResource("3_pkqwu")
 
 [node name="NameEntry" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" unique_id=824166168]
@@ -116,6 +117,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Card Type Name"
+
+[node name="NewBackTextureButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" unique_id=573322353]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Choose New Back Texture"
 
 [node name="SubTypeOptionsLabel" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" unique_id=403041838]
 layout_mode = 2
@@ -167,6 +173,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Sub Type Name"
+
+[node name="NewFrontTextureButton" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" unique_id=577572806]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Choose New Front Texture"
 
 [node name="CardNodeMenu" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" unique_id=895917820]
 unique_name_in_owner = true
@@ -223,6 +234,14 @@ text = "+ Card"
 [node name="DeleteMenu" parent="CanvasLayer" unique_id=608963587 instance=ExtResource("2_hc6fa")]
 unique_name_in_owner = true
 
+[node name="FileDialog" type="FileDialog" parent="CanvasLayer" unique_id=2066202761]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1256520342]
 script = ExtResource("1_c371m")
 
@@ -236,10 +255,14 @@ texture = ExtResource("8_hc6fa")
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/MainMenu/+CardTypeButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/MainMenu" method="_on_card_type_button_pressed"]
 [connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu/NameEntry/CardTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_card_type_name_box_text_submitted"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu/NewBackTextureButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_new_back_texture_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu/AddSubTypeButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_add_sub_type_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu/AddDeckButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_add_deck_button_pressed"]
 [connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NameEntry/CardSubTypeNameBox" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_card_sub_type_name_box_text_submitted"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NewFrontTextureButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_new_front_texture_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NewNodeButtons/+NumberLabelButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu" method="_on_number_label_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/NewNodeButtons/+TextLabelButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu/CardNodeMenu" method="_on_text_label_button_pressed"]
 [connection signal="text_submitted" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu/NameEntry/DeckNameLineEdit" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" method="_on_deck_name_line_edit_text_submitted"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu/AddCardButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/DeckMenu" method="_on_add_card_button_pressed"]
+[connection signal="file_selected" from="CanvasLayer/FileDialog" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_file_dialog_file_selected"]
+[connection signal="file_selected" from="CanvasLayer/FileDialog" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_file_dialog_file_selected"]

@@ -15,7 +15,7 @@ var face_up :bool
 var current_texture :Texture2D
 
 
-func setup(given_card_front_texture: Texture2D, given_card_back_texture: CompressedTexture2D,
+func setup(given_card_front_texture: Texture2D, given_card_back_texture: Texture2D,
 		given_variable_parts: Array[Node],
 		given_pos: Vector2, is_face_up: bool
 ) -> void:

@@ -50,3 +50,16 @@ func _on_add_sub_type_button_pressed() -> void:
 func _on_add_deck_button_pressed() -> void:
 	card_type.add_empty_deck()
 	%DeckOptions.reset()
+
+
+func _on_new_back_texture_button_pressed() -> void:
+	%FileDialog.popup_centered_clamped()
+
+
+func _on_file_dialog_file_selected(path: String) -> void:
+	if not visible:
+		return
+	
+	var new_texture: Texture2D= GlobalVariables.load_texture_from_path(path)
+	card_type.card_back_texture = new_texture
+	%CardBackground.texture = new_texture

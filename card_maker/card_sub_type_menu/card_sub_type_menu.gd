@@ -38,3 +38,15 @@ func _on_back_button_pressed() -> void:
 	
 	close()
 	%CardTypeMenu.open()
+
+
+func _on_new_front_texture_button_pressed() -> void:
+	%FileDialog.popup_centered_clamped()
+
+func _on_file_dialog_file_selected(path: String) -> void:
+	if not visible:
+		return
+	
+	var new_texture: Texture2D= GlobalVariables.load_texture_from_path(path)
+	card_sub_type.card_front_texture = new_texture
+	%CardBackground.texture = new_texture

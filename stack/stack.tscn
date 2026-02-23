@@ -7,18 +7,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qmro"]
 size = Vector2(150, 210)
 
-[node name="Stack" type="Node2D" groups=["snap_location"]]
+[node name="Stack" type="Node2D" unique_id=1355061562 groups=["snap_location"]]
 script = ExtResource("1_rpeue")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=627968310]
 position = Vector2(0, 1)
 texture = ExtResource("1_7kxph")
 
-[node name="Area2D" type="Area2D" parent="." groups=["snap_location"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=1298770476 groups=["snap_location"]]
 unique_name_in_owner = true
 script = ExtResource("3_yojl1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=555407237]
 shape = SubResource("RectangleShape2D_1qmro")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

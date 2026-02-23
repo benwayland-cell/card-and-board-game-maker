@@ -27,3 +27,12 @@ func prune(card_type : CardType) -> void:
 			new_card_data_dict[card_node] = card_node.get_value()
 	
 	card_data_dict = new_card_data_dict
+
+
+func to_card(card_type: CardType) -> Card:
+	var new_card: Card= GlobalVariables.CARD_SCENE.instantiate()
+	var sub_type: CardSubType= card_type.sub_types[sub_type_index]
+	var card_nodes: Array[Node] = sub_type.get_card_nodes(card_data_dict)
+	
+	new_card.setup(sub_type.card_front_texture, card_type.card_back_texture, card_nodes, Vector2.ZERO, false)
+	return new_card

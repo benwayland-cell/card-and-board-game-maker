@@ -73,3 +73,14 @@ func delete_card_type(card_type_to_delete : CardType) -> void:
 		if card_type == card_type_to_delete:
 			card_types.remove_at(index)
 			return
+
+
+func load_texture_from_path(path: String) -> Texture2D:
+	var image := Image.new()
+	var error := image.load(path)
+	if error != OK:
+		push_error("Failed to load image: %s" % path)
+		return null
+	
+	var new_texture := ImageTexture.create_from_image(image)
+	return new_texture
