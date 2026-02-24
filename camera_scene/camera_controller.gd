@@ -23,6 +23,8 @@ func _process(delta: float) -> void:
 
 
 func _zoom(delta: float) -> void:
+	var old_mouse_pos := get_global_mouse_position()
+	
 	if Input.is_action_just_pressed("camera_zoom_in"):
 		zoom_target *= 1 + zoom_factor
 	
@@ -30,6 +32,10 @@ func _zoom(delta: float) -> void:
 		zoom_target *= 1 - zoom_factor
 	
 	zoom = zoom.slerp(zoom_target, zoom_speed * delta)
+	
+	
+	var new_mouse_pos := get_global_mouse_position()
+	position += old_mouse_pos - new_mouse_pos
 
 
 func _simple_pan(delta: float) -> void:
