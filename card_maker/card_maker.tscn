@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cq0456nebfdxi"]
 
-[ext_resource type="Script" uid="uid://dsykc8glp6ena" path="res://card_maker/camera_controller.gd" id="1_c371m"]
 [ext_resource type="Script" uid="uid://boei65gut0jib" path="res://card_maker/card_maker.gd" id="1_y4jyd"]
 [ext_resource type="PackedScene" uid="uid://c83viscthosp4" path="res://card_maker/delete_menu/delete_menu.tscn" id="2_hc6fa"]
 [ext_resource type="Script" uid="uid://bjp83ock7qkpx" path="res://card_maker/main_menu/main_menu.gd" id="2_pkqwu"]
@@ -11,6 +10,7 @@
 [ext_resource type="Script" uid="uid://do5i77vx5jwbw" path="res://card_maker/card_sub_type_menu/card_node_menu.gd" id="6_gfq1c"]
 [ext_resource type="Script" uid="uid://c363idbyj5grf" path="res://card_maker/deck_menu/deck_menu.gd" id="8_0v7x4"]
 [ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://card_textures/empty_card_sprite.png" id="8_hc6fa"]
+[ext_resource type="PackedScene" uid="uid://q5866ikokh4n" path="res://camera_scene/camera_scene.tscn" id="11_0v7x4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f5pdp"]
 font_color = Color(0, 0, 0, 1)
@@ -242,13 +242,12 @@ file_mode = 0
 access = 2
 filters = PackedStringArray("*.png")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1256520342]
-script = ExtResource("1_c371m")
-
 [node name="CardBackground" type="Sprite2D" parent="." unique_id=2089007389]
 unique_name_in_owner = true
 position = Vector2(-187, 19)
 texture = ExtResource("8_hc6fa")
+
+[node name="CameraScene" parent="." unique_id=1556025397 instance=ExtResource("11_0v7x4")]
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardTypeMenu" method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Top Menu/BackButton" to="CanvasLayer/MarginContainer/MarginContainer/ScrollContainer/MainVBox/Menus/CardSubTypeMenu" method="_on_back_button_pressed"]

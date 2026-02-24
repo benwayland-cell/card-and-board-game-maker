@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dfi586cpgfuvl"]
 
 [ext_resource type="Script" uid="uid://865xhc5q8i3b" path="res://table/table.gd" id="1_7tbl0"]
-[ext_resource type="Script" uid="uid://chajnisakkiub" path="res://table/camera_controller.gd" id="2_u28b8"]
+[ext_resource type="PackedScene" uid="uid://q5866ikokh4n" path="res://camera_scene/camera_scene.tscn" id="2_ptjb6"]
 
 [node name="Table" type="Node2D" unique_id=194097759]
 script = ExtResource("1_7tbl0")
@@ -10,11 +10,13 @@ script = ExtResource("1_7tbl0")
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="Background" unique_id=1496888344]
-offset_left = -46.0
-offset_top = -45.0
-offset_right = 1177.0
-offset_bottom = 672.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=905429412]
-script = ExtResource("2_u28b8")
+[node name="CameraScene" parent="." unique_id=1556025397 instance=ExtResource("2_ptjb6")]
