@@ -1,10 +1,12 @@
-extends Node2D
+extends Area2D
 class_name Card
 
+@onready var sprite: Sprite2D = %Sprite2D
+@onready var variable_parts_node: Node2D = %VariableParts
 
-var card_front_texture :Texture2D
-var card_back_texture :Texture2D
-var variable_parts : Array[Node]
+var card_front_texture: Texture2D
+var card_back_texture: Texture2D
+var variable_parts: Array[Node]
 
 # variables
 var selected := false
@@ -28,9 +30,9 @@ func setup(given_card_front_texture: Texture2D, given_card_back_texture: Texture
 	
 	update_texture()
 	
-	# add all of the nodes in variable_parts to %VariableParts
+	# add all of the nodes in variable_parts to variable_parts_node
 	for node in variable_parts:
-		%VariableParts.add_child(node)
+		variable_parts_node.add_child(node)
 
 
 func _process(_delta: float) -> void:
@@ -39,7 +41,7 @@ func _process(_delta: float) -> void:
 		return
 	z_index = 1
 	
-	for overlapping_area in %Area2D.get_overlapping_areas():
+	for overlapping_area in get_overlapping_areas():
 		_handle_snapping(overlapping_area)
 		#_handle_z_index(overlapping_area)
 	
@@ -58,7 +60,7 @@ func _handle_snapping(overlapping_area : Area2D):
 
 # makes sure the z_index of this item is above overlapping_area
 func _handle_z_index(overlapping_area : Area2D):
-	var other_z_index : int = overlapping_area.get_parent().z_index
+	var other_z_index : int = overlapping_area.z_index
 	
 	if z_index == other_z_index:
 		z_index += 1
@@ -69,7 +71,7 @@ func _handle_z_index(overlapping_area : Area2D):
 		z_index = temp_data
 		
 		# actually sets the other object's z_index to other_z_index
-		overlapping_area.get_parent().z_index = other_z_index
+		overlapping_area.z_index = other_z_index
 
 
 # Moves the card to follow the mouse
@@ -80,7 +82,7 @@ func _follow_mouse():
 	position = get_global_mouse_position() + mouse_offset
 
 
-func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action("left_click"):
 		if not event.is_pressed():
 			selected = false
@@ -121,19 +123,19 @@ func flip_card() -> void:
 func update_texture() -> void:
 	if face_up:
 		current_texture = card_front_texture
-		%Sprite2D.texture = card_front_texture
-		%VariableParts.show()
+		sprite.texture = card_front_texture
+		variable_parts_node.show()
 	else:
 		current_texture = card_back_texture
-		%Sprite2D.texture = card_back_texture
-		%VariableParts.hide()
+		sprite.texture = card_back_texture
+		variable_parts_node.hide()
 
 
 # makes a dictionary of all of the important data in the variable nodes
 func get_variable_data() -> Dictionary:
 	var variable_data : Dictionary = {}
 	
-	for node in %VariableParts.get_children():
+	for node in variable_parts_node.get_children():
 		var data_to_add
 		
 		if node is Label:

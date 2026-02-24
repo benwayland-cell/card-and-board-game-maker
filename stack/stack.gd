@@ -1,7 +1,7 @@
-extends Node2D
+extends Area2D
 class_name Stack
 
-@export var shuffle_deck: bool= true
+@export var shuffle_deck: bool = true
 
 var empty_texture : Texture2D
 var cards : Array [Card]
@@ -14,15 +14,15 @@ func _process(_delta: float) -> void:
 	_handle_adding_cards()
 
 
-func _on_area_2d_mouse_entered() -> void:
+func _on_mouse_entered() -> void:
 	mouse_is_overlapping = true
 
 
-func _on_area_2d_mouse_exited() -> void:
+func _on_mouse_exited() -> void:
 	mouse_is_overlapping = false
 
 
-func get_mouse_is_overlapping() -> bool:
+func check_for_snapping() -> bool:
 	return mouse_is_overlapping
 
 
@@ -31,10 +31,9 @@ func _handle_adding_cards() -> void:
 	if not Input.is_action_just_released("left_click"):
 		return
 	
-	for area: Area2D in %Area2D.get_overlapping_areas():
-		var area_parent : Node = area.get_parent()
-		if area_parent is Card and global_position == area.global_position:
-			_add_card(area.get_parent())
+	for area: Area2D in get_overlapping_areas():
+		if area is Card and global_position == area.global_position:
+			_add_card(area)
 
 
 # checks for the top card being removed and removing it
