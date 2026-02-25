@@ -1,15 +1,16 @@
-extends Node2D
+class_name SnapLocation
+extends Area2D
 
 var mouse_is_overlapping := false
 
 
-func _on_area_2d_mouse_entered() -> void:
+func _on_mouse_entered() -> void:
 	mouse_is_overlapping = true
 
 
-func _on_area_2d_mouse_exited() -> void:
+func _on_mouse_exited() -> void:
 	mouse_is_overlapping = false
 
 
-func get_mouse_is_overlapping() -> bool:
+func check_for_snapping() -> bool:
 	return mouse_is_overlapping

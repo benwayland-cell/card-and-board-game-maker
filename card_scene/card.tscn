@@ -6,15 +6,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kikvd"]
 size = Vector2(150, 210)
 
-[node name="Card" type="Area2D" unique_id=1893137357]
+[node name="Card" type="Area2D" unique_id=1893137357 node_paths=PackedStringArray("sprite", "variable_parts_node")]
 script = ExtResource("1_rjlel")
+sprite = NodePath("Sprite2D")
+variable_parts_node = NodePath("VariableParts")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1107175813]
-unique_name_in_owner = true
 texture = ExtResource("1_kikvd")
 
 [node name="VariableParts" type="Node2D" parent="." unique_id=991465630]
-unique_name_in_owner = true
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=184483900]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://865xhc5q8i3b" path="res://table/table.gd" id="1_7tbl0"]
 [ext_resource type="PackedScene" uid="uid://q5866ikokh4n" path="res://camera_scene/camera_scene.tscn" id="2_ptjb6"]
+[ext_resource type="PackedScene" uid="uid://dskrgu27gr0yr" path="res://snap location/snap_location.tscn" id="3_i2265"]
 
 [node name="Table" type="Node2D" unique_id=194097759]
 script = ExtResource("1_7tbl0")
@@ -13,10 +14,11 @@ layer = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -2.0
-offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [node name="CameraScene" parent="." unique_id=1556025397 instance=ExtResource("2_ptjb6")]
+
+[node name="SnapLocation" parent="." unique_id=62366222 instance=ExtResource("3_i2265")]
+position = Vector2(-313, 39)

@@ -3,13 +3,11 @@ class_name Stack
 
 @export var shuffle_deck: bool = true
 
-var empty_texture : Texture2D
 var cards : Array [Card]
 var mouse_is_overlapping := false
 
 
 func _process(_delta: float) -> void:
-	#print(cards.size())
 	_handle_removing_cards()
 	_handle_adding_cards()
 

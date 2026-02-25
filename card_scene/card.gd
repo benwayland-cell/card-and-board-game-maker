@@ -1,8 +1,8 @@
 extends Area2D
 class_name Card
 
-@onready var sprite: Sprite2D = %Sprite2D
-@onready var variable_parts_node: Node2D = %VariableParts
+@export var sprite: Sprite2D
+@export var variable_parts_node: Node2D
 
 var card_front_texture: Texture2D
 var card_back_texture: Texture2D
