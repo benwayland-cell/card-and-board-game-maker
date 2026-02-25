@@ -1,27 +1,14 @@
-extends Area2D
 class_name Stack
+extends SnapLocation
 
 @export var shuffle_deck: bool = true
 
 var cards : Array [Card]
-var mouse_is_overlapping := false
 
 
 func _process(_delta: float) -> void:
 	_handle_removing_cards()
 	_handle_adding_cards()
-
-
-func _on_mouse_entered() -> void:
-	mouse_is_overlapping = true
-
-
-func _on_mouse_exited() -> void:
-	mouse_is_overlapping = false
-
-
-func check_for_snapping() -> bool:
-	return mouse_is_overlapping
 
 
 # checks for any cards being added to the stack
