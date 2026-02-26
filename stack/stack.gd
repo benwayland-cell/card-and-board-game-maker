@@ -54,7 +54,7 @@ func add_card_to_snap_location(card: Card) -> void:
 	
 	# add the new card
 	cards.append(card)
-	add_child(card)
+	super.add_card_to_snap_location(card)
 
 
 func remove_card_from_snap_location(card: Card) -> void:

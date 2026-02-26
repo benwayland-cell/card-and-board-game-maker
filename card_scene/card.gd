@@ -67,7 +67,6 @@ func _handle_snapping_to_snap_location(overlapping_snap_location : SnapLocation)
 	
 	is_snapping = true
 	if get_parent() != overlapping_snap_location:
-		get_parent().remove_card_from_snap_location(self)
 		overlapping_snap_location.add_card_to_snap_location(self)
 	
 	global_position = overlapping_snap_location.global_position

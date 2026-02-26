@@ -17,6 +17,16 @@ func check_for_snapping() -> bool:
 
 
 func add_card_to_snap_location(card: Card) -> void:
+	var card_parent = card.get_parent()
+	
+	if card_parent is SnapLocation:
+		card_parent.remove_card_from_snap_location(card)
+	
+	elif card_parent == null:
+		pass
+	else:
+		assert(false, "Card [" + card.name + "]'s parent was not a snap location")
+	
 	add_child(card)
 
 
