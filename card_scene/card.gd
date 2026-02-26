@@ -1,7 +1,10 @@
 extends Area2D
 class_name Card
 
+const RETURN_SPEED: float = 10.0
+
 # nodes needed
+@export_group("Private nodes")
 @export var sprite: Sprite2D
 @export var variable_parts_node: Node2D
 
@@ -38,12 +41,13 @@ func setup(given_card_front_texture: Texture2D, given_card_back_texture: Texture
 		variable_parts_node.add_child(node)
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if disabled:
 		return
 	
 	if not selected:
 		z_index = 0
+		_go_to_zero(delta)
 		return
 	
 	z_index = 1
@@ -51,8 +55,6 @@ func _process(_delta: float) -> void:
 	for overlapping_area in get_overlapping_areas():
 		if overlapping_area is SnapLocation:
 			_handle_snapping_to_snap_location(overlapping_area)
-			if is_snapping:
-				return
 	
 	_follow_mouse()
 
@@ -92,7 +94,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		
 		else:
 			start_drag_mouse_pos = get_global_mouse_position()
-			mouse_offset = position - start_drag_mouse_pos
+			mouse_offset = global_position - start_drag_mouse_pos
 			selected = true
 	
 	elif event.is_action("right_click") and event.is_released():
@@ -151,3 +153,8 @@ func get_variable_data() -> Dictionary:
 		variable_data[node.name] = data_to_add
 	
 	return variable_data
+
+
+func _go_to_zero(delta: float) -> void:
+	if position != Vector2.ZERO:
+		position = position.slerp(Vector2.ZERO, RETURN_SPEED * delta)

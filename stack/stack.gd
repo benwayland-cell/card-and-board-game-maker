@@ -6,10 +6,10 @@ extends SnapLocation
 var cards : Array [Card]
 
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("debug"):
-		print(name + ":")
-		print("cards.size(): " + str(cards.size()))
+#func _process(_delta: float) -> void:
+	#if Input.is_action_just_pressed("debug"):
+		#print(name + ":")
+		#print("cards.size(): " + str(cards.size()))
 
 
 # adds cards to the stack
