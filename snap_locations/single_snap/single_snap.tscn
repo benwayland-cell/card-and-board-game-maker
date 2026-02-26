@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cqhvtc2cg316c"]
+
+[ext_resource type="Script" uid="uid://cvf3ue1wyg1si" path="res://snap_locations/single_snap/single_snap.gd" id="1_wvtft"]
+[ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://card_textures/empty_card_sprite.png" id="2_5fac2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nj8sg"]
+size = Vector2(150, 210)
+
+[node name="SingleSnap" type="Area2D" unique_id=1141027611]
+script = ExtResource("1_wvtft")
+metadata/_custom_type_script = "uid://btpuxauc2juen"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=271863211]
+position = Vector2(0, 1)
+texture = ExtResource("2_5fac2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11430826]
+shape = SubResource("RectangleShape2D_nj8sg")

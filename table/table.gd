@@ -1,6 +1,6 @@
 extends Node2D
 
-var stack_scene : PackedScene = preload("res://stack/stack.tscn")
+var stack_scene : PackedScene = preload("uid://daxva46oxm3tt")
 
 func _ready() -> void:
 	# make the stack

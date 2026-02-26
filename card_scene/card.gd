@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 
 # handles snapping to this object
 func _handle_snapping_to_snap_location(overlapping_snap_location : SnapLocation):
-	if not overlapping_snap_location.check_for_snapping():
+	if not overlapping_snap_location.check_for_snapping(self):
 		is_snapping = false
 		return
 	
@@ -98,6 +98,10 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	
 	elif event.is_action("right_click") and event.is_released():
 		_right_click()
+
+
+func _handle_stopped_left_clicking() -> void:
+	pass
 
 
 func _left_click() -> void:
