@@ -39,11 +39,11 @@ func _ready():
 	var test_card_type := CardType.new("Test card type", DEFAULT_BACK_TEXTURE, [test_sub_type])
 	
 	var test_card1 : Dictionary[CardNode, Variant] = {
-		test_card_node1: 10,
+		test_card_node1: 3,
 		test_card_node2: "Test Text 1",
 	}
 	var test_card2 : Dictionary[CardNode, Variant] = {
-		test_card_node1: 20,
+		test_card_node1: 2,
 		test_card_node2: "Test Text 2",
 	}
 	var test_card3 : Dictionary[CardNode, Variant] = {

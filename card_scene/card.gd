@@ -1,20 +1,23 @@
 extends Area2D
 class_name Card
 
+# nodes needed
 @export var sprite: Sprite2D
 @export var variable_parts_node: Node2D
 
+# textures and physical parts
 var card_front_texture: Texture2D
 var card_back_texture: Texture2D
 var variable_parts: Array[Node]
 
-# variables
-var selected := false
-var mouse_offset := Vector2.ZERO
-var is_snapping := false
-var start_drag_mouse_pos := Vector2.ZERO
+# variables used by processing
+var disabled: bool = false # prevents _process from running
+var selected := false # if it's been selected by the user
+var mouse_offset := Vector2.ZERO # the offset from position to the mouse
+var is_snapping := false # if it's snapping to a snap location
+var start_drag_mouse_pos := Vector2.ZERO 
 var face_up :bool
-var current_texture :Texture2D
+var current_texture: Texture2D # the current texture
 
 
 func setup(given_card_front_texture: Texture2D, given_card_back_texture: Texture2D,
@@ -36,42 +39,36 @@ func setup(given_card_front_texture: Texture2D, given_card_back_texture: Texture
 
 
 func _process(_delta: float) -> void:
+	if disabled:
+		return
+	
 	if not selected:
 		z_index = 0
 		return
+	
 	z_index = 1
 	
 	for overlapping_area in get_overlapping_areas():
-		_handle_snapping(overlapping_area)
-		#_handle_z_index(overlapping_area)
+		if overlapping_area is SnapLocation:
+			_handle_snapping_to_snap_location(overlapping_area)
+			if is_snapping:
+				return
 	
 	_follow_mouse()
 
 
 # handles snapping to this object
-func _handle_snapping(overlapping_area : Area2D):
-	if overlapping_area.is_in_group("snap_location"):
-			if overlapping_area.check_for_snapping():
-				is_snapping = true
-				global_position = overlapping_area.global_position
-			else:
-				is_snapping = false
-
-
-# makes sure the z_index of this item is above overlapping_area
-func _handle_z_index(overlapping_area : Area2D):
-	var other_z_index : int = overlapping_area.z_index
+func _handle_snapping_to_snap_location(overlapping_snap_location : SnapLocation):
+	if not overlapping_snap_location.check_for_snapping():
+		is_snapping = false
+		return
 	
-	if z_index == other_z_index:
-		z_index += 1
-	elif z_index < other_z_index:
-		# swap z_index
-		var temp_data = other_z_index
-		other_z_index = z_index
-		z_index = temp_data
-		
-		# actually sets the other object's z_index to other_z_index
-		overlapping_area.z_index = other_z_index
+	is_snapping = true
+	if get_parent() != overlapping_snap_location:
+		get_parent().remove_card_from_snap_location(self)
+		overlapping_snap_location.add_card_to_snap_location(self)
+	
+	global_position = overlapping_snap_location.global_position
 
 
 # Moves the card to follow the mouse
@@ -79,17 +76,20 @@ func _follow_mouse():
 	if is_snapping:
 		return
 	
-	position = get_global_mouse_position() + mouse_offset
+	global_position = get_global_mouse_position() + mouse_offset
 
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if disabled:
+		return
+	
 	if event.is_action("left_click"):
 		if not event.is_pressed():
 			selected = false
 			
 			if get_global_mouse_position() == start_drag_mouse_pos:
 				_left_click()
-			
+		
 		else:
 			start_drag_mouse_pos = get_global_mouse_position()
 			mouse_offset = position - start_drag_mouse_pos
@@ -120,6 +120,7 @@ func flip_card() -> void:
 	update_texture()
 
 
+# updates the texture given wether it is face up or not
 func update_texture() -> void:
 	if face_up:
 		current_texture = card_front_texture

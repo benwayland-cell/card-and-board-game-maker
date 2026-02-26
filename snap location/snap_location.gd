@@ -14,3 +14,11 @@ func _on_mouse_exited() -> void:
 
 func check_for_snapping() -> bool:
 	return mouse_is_overlapping
+
+
+func add_card_to_snap_location(card: Card) -> void:
+	add_child(card)
+
+
+func remove_card_from_snap_location(card: Card) -> void:
+	remove_child(card)

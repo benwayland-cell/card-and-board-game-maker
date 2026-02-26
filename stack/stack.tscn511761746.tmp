@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://daxva46oxm3tt"]
+
+[ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://card_textures/empty_card_sprite.png" id="1_7kxph"]
+[ext_resource type="Script" uid="uid://bdfcwy8841fpp" path="res://stack/stack.gd" id="1_rpeue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qmro"]
+size = Vector2(150, 210)
+
+[node name="Stack" type="Area2D" unique_id=1825856516 groups=["snap_location"]]
+script = ExtResource("1_rpeue")
+metadata/_custom_type_script = "uid://btpuxauc2juen"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=627968310]
+position = Vector2(0, 1)
+texture = ExtResource("1_7kxph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=555407237]
+shape = SubResource("RectangleShape2D_1qmro")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
