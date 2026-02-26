@@ -1,3 +1,4 @@
+@abstract
 class_name SnapLocation
 extends Area2D
 

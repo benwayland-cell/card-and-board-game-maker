@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://q5866ikokh4n" path="res://camera_scene/camera_scene.tscn" id="2_ptjb6"]
 [ext_resource type="PackedScene" uid="uid://daxva46oxm3tt" path="res://snap_locations/stack/stack.tscn" id="3_i2265"]
 [ext_resource type="PackedScene" uid="uid://cqhvtc2cg316c" path="res://snap_locations/single_snap/single_snap.tscn" id="4_7tbl0"]
-[ext_resource type="PackedScene" uid="uid://dskrgu27gr0yr" path="res://snap_locations/snap_location.tscn" id="5_u28b8"]
 
 [node name="Table" type="Node2D" unique_id=194097759]
 script = ExtResource("1_7tbl0")
@@ -27,6 +26,3 @@ position = Vector2(425, -140)
 
 [node name="SingleSnap" parent="." unique_id=1141027611 instance=ExtResource("4_7tbl0")]
 position = Vector2(-414, -67)
-
-[node name="SnapLocation" parent="." unique_id=62366222 instance=ExtResource("5_u28b8")]
-position = Vector2(-275, 220)
