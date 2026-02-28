@@ -8,4 +8,3 @@ func _ready() -> void:
 	var test_stack : Stack = stack_scene.instantiate()
 	test_stack.add_deck(test_card_type.decks[0], test_card_type)
 	add_child(test_stack)
-	

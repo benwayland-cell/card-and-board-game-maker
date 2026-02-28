@@ -30,7 +30,7 @@ func prune(card_type : CardType) -> void:
 
 
 func to_card(card_type: CardType) -> Card:
-	var new_card: Card= GlobalVariables.CARD_SCENE.instantiate()
+	var new_card: Card= Scenes.CARD_SCENE.instantiate()
 	var sub_type: CardSubType= card_type.sub_types[sub_type_index]
 	var card_nodes: Array[Node] = sub_type.get_card_nodes(card_data_dict)
 	

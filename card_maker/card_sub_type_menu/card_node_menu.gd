@@ -10,7 +10,7 @@ func setup(given_card_sub_type : CardSubType) -> void:
 func _setup_nodes() -> void:
 	for current_card_node : CardNode in card_sub_type.card_nodes:
 		%CardBackground.add_child(current_card_node.node)
-		var single_node_menu := GlobalVariables.SINGLE_NODE_MENU_SCENE.instantiate()
+		var single_node_menu := Scenes.SINGLE_NODE_MENU_SCENE.instantiate()
 		single_node_menu.setup(current_card_node, card_sub_type)
 		single_node_menu.connect("delete_button_pressed", _on_node_delete_button_pressed)
 		add_child(single_node_menu)

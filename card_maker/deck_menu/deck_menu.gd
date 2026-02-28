@@ -30,7 +30,7 @@ func close() -> void:
 
 func _setup_single_card_menus() -> void:
 	for card_data: CardData in deck.deck_data:
-		var new_single_card_menu: SingleCardMenu= GlobalVariables.SINGLE_CARD_MENU_SCENE.instantiate()
+		var new_single_card_menu: SingleCardMenu= Scenes.SINGLE_CARD_MENU_SCENE.instantiate()
 		new_single_card_menu.setup(card_type, card_data)
 		new_single_card_menu.connect("delete_card", _on_delete_card)
 		%SingleCardMenus.add_child(new_single_card_menu)

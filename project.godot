@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 ButtonOptions="*res://global_scripts/button_options.gd"
 GlobalVariables="*res://global_scripts/global_variables.gd"
+Scenes="*uid://ccnd3da5qu5fp"
 
 [display]
 

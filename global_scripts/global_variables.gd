@@ -4,15 +4,9 @@ var camera_zoom := Vector2.ONE
 var simple_label_settings := LabelSettings.new()
 var card_types : Array[CardType] = []
 
-const CARD_SCENE :PackedScene= preload("res://card_scene/card.tscn")
-const RIGHT_CLICK_MENU_SCENE :PackedScene= preload("res://right_click_menu/right_click_menu.tscn")
 const DEFAULT_FRONT_TEXTURE :Texture2D= preload("res://card_textures/Test Card.png")
 const DEFAULT_BACK_TEXTURE :Texture2D= preload("res://card_textures/Test Card Back.png")
 
-const BUTTON_AND_DELETE_SCENE : PackedScene = preload("res://card_maker/button_and_delete/button_and_delete.tscn")
-const SINGLE_CARD_MENU_SCENE : PackedScene = preload("res://card_maker/deck_menu/single_card_menu/single_card_menu.tscn")
-const SINGLE_CARD_NODE_MENU_SCENE : PackedScene = preload("res://card_maker/deck_menu/single_card_menu/single_card_node_menu/single_card_node_menu.tscn") # this is used by deck menu
-const SINGLE_NODE_MENU_SCENE : PackedScene = preload("res://card_maker/card_sub_type_menu/single_node_menu/single_node_menu.tscn") # this is used by sub type menu
 
 func _ready():
 	# init simple_label_settings
@@ -20,14 +14,14 @@ func _ready():
 	
 	# init card types
 	var test_label1 = Label.new()
-	test_label1.label_settings = GlobalVariables.simple_label_settings
+	test_label1.label_settings = simple_label_settings
 	test_label1.label_settings.font_size = 20
 	test_label1.name = "Test number label"
 	test_label1.text = "1"
 	var test_card_node1 := CardNode.new(test_label1, CardNode.NodeTypes.NUMBER_LABEL)
 	
 	var test_label2 = Label.new()
-	test_label2.label_settings = GlobalVariables.simple_label_settings
+	test_label2.label_settings = simple_label_settings
 	test_label2.label_settings.font_size = 20
 	test_label2.position = Vector2(-50, 20)
 	test_label2.name = "Test text label"

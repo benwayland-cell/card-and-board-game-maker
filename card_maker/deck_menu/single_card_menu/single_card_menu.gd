@@ -33,7 +33,7 @@ func setup_card_nodes() -> void:
 	var card_nodes:Array[CardNode] = sub_type.card_nodes
 	
 	for card_node in card_nodes:
-		var new_single_card_node_menu: SingleCardNodeMenu = GlobalVariables.SINGLE_CARD_NODE_MENU_SCENE.instantiate()
+		var new_single_card_node_menu: SingleCardNodeMenu = Scenes.SINGLE_CARD_NODE_MENU_SCENE.instantiate()
 		new_single_card_node_menu.setup(card_node, card_data)
 		%NodeVBox.add_child(new_single_card_node_menu)
 

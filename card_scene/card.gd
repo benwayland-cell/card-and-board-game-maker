@@ -115,7 +115,7 @@ func _right_click() -> void:
 		CustomRightClickButton.new(self, "Test 2", ButtonOptions.test2),
 		CustomRightClickButton.new(self, "Test 3", ButtonOptions.test3)
 	]
-	var right_click_menu := GlobalVariables.RIGHT_CLICK_MENU_SCENE.instantiate()
+	var right_click_menu := Scenes.RIGHT_CLICK_MENU_SCENE.instantiate()
 	right_click_menu.setup(self, button_array)
 
 

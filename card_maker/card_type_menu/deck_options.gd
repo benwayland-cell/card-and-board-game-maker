@@ -12,7 +12,7 @@ func setup(given_card_type : CardType) -> void:
 
 func _setup_buttons() -> void:
 	for deck in decks:
-		var new_button_and_delete : ButtonAndDelete = GlobalVariables.BUTTON_AND_DELETE_SCENE.instantiate()
+		var new_button_and_delete : ButtonAndDelete = Scenes.BUTTON_AND_DELETE_SCENE.instantiate()
 		new_button_and_delete.setup(deck)
 		new_button_and_delete.connect("name_button_pressed", _on_button_pressed)
 		new_button_and_delete.connect("delete_button_pressed", _on_delete_button_pressed)
