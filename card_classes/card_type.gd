@@ -20,7 +20,7 @@ func make_card(sub_type_index : int, card_data_dict : Dictionary[CardNode, Varia
 	var sub_type = sub_types[sub_type_index]
 	var variable_nodes : Array[Node] = sub_type.get_card_nodes(card_data_dict)
 	
-	var card_to_return : Card = GlobalVariables.CARD_SCENE.instantiate()
+	var card_to_return : Card = Scenes.CARD_SCENE.instantiate()
 	card_to_return.setup(sub_type.card_front_texture, card_back_texture, variable_nodes, Vector2.ZERO, true)
 	
 	return card_to_return

@@ -1,11 +1,15 @@
 extends Node
 
-var camera_zoom := Vector2.ONE
-var simple_label_settings := LabelSettings.new()
-var card_types : Array[CardType] = []
-
 const DEFAULT_FRONT_TEXTURE :Texture2D= preload("res://card_textures/Test Card.png")
 const DEFAULT_BACK_TEXTURE :Texture2D= preload("res://card_textures/Test Card Back.png")
+
+const CARD_TEXTURE_WIDTH: int = 150
+const CARD_TEXTURE_HEIGHT: int = 210
+
+var camera_zoom := Vector2.ONE
+var simple_label_settings := LabelSettings.new()
+var card_types: Array[CardType] = []
+var players: Array[Player] = []
 
 
 func _ready():
@@ -54,6 +58,13 @@ func _ready():
 		]
 	
 	card_types.append(test_card_type)
+	
+	
+	# set up a test player
+	var test_player: Player = Player.new()
+	test_player.name = "Test Player"
+	test_player.hand = test_card_type.make_deck(0)
+	players = [test_player]
 
 
 func add_new_card_type() -> void:

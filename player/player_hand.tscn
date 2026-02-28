@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://hdx3rf1k7552"]
+
+[ext_resource type="Script" uid="uid://3o4d4w621ec4" path="res://player/player_hand.gd" id="1_48hfs"]
+
+[node name="PlayerHand" type="HBoxContainer" unique_id=962752257]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+script = ExtResource("1_48hfs")
