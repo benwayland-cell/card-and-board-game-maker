@@ -2,6 +2,9 @@
 class_name SnapLocation
 extends Area2D
 
+@export_group("Private Nodes")
+@export var sprite: Sprite2D
+
 var mouse_is_overlapping := false
 
 

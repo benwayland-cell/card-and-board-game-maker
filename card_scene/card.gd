@@ -19,7 +19,8 @@ var selected := false # if it's been selected by the user
 var mouse_offset := Vector2.ZERO # the offset from position to the mouse
 var is_snapping := false # if it's snapping to a snap location
 var start_drag_mouse_pos := Vector2.ZERO 
-var face_up :bool
+var face_up :bool:
+	set = update_texture
 var current_texture: Texture2D # the current texture
 
 
@@ -34,8 +35,6 @@ func setup(given_card_front_texture: Texture2D, given_card_back_texture: Texture
 	position = given_pos
 	face_up = is_face_up
 	
-	update_texture()
-	
 	# add all of the nodes in variable_parts to variable_parts_node
 	for node in variable_parts:
 		variable_parts_node.add_child(node)
@@ -44,6 +43,8 @@ func setup(given_card_front_texture: Texture2D, given_card_back_texture: Texture
 func _process(delta: float) -> void:
 	if disabled:
 		return
+	
+	_handle_deselecting_mouse()
 	
 	if not selected:
 		z_index = 0
@@ -57,6 +58,8 @@ func _process(delta: float) -> void:
 			_handle_snapping_to_snap_location(overlapping_area)
 	
 	_follow_mouse()
+	
+	Input.is_action_just_released("left_click")
 
 
 # handles snapping to this object
@@ -84,24 +87,24 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if disabled:
 		return
 	
-	if event.is_action("left_click"):
-		if not event.is_pressed():
-			selected = false
-			
-			if get_global_mouse_position() == start_drag_mouse_pos:
-				_left_click()
-		
-		else:
-			start_drag_mouse_pos = get_global_mouse_position()
-			mouse_offset = global_position - start_drag_mouse_pos
-			selected = true
+	if event.is_action("left_click") and event.is_pressed():
+		start_drag_mouse_pos = get_global_mouse_position()
+		mouse_offset = global_position - start_drag_mouse_pos
+		selected = true
 	
 	elif event.is_action("right_click") and event.is_released():
 		_right_click()
 
 
-func _handle_stopped_left_clicking() -> void:
-	pass
+func _handle_deselecting_mouse() -> void:
+	if not (Input.is_action_just_released("left_click") and selected):
+		return
+	
+	print("ran")
+	selected = false
+	
+	if get_global_mouse_position() == start_drag_mouse_pos:
+		_left_click()
 
 
 func _left_click() -> void:
@@ -121,12 +124,12 @@ func _right_click() -> void:
 
 func flip_card() -> void:
 	face_up = !face_up
-	
-	update_texture()
 
 
 # updates the texture given wether it is face up or not
-func update_texture() -> void:
+func update_texture(new_face_up: bool) -> void:
+	face_up = new_face_up
+	
 	if face_up:
 		current_texture = card_front_texture
 		sprite.texture = card_front_texture

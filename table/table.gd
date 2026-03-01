@@ -1,7 +1,6 @@
 extends Node2D
 
 
-
 func _ready() -> void:
 	# make the stack
 	var test_card_type : CardType = GlobalVariables.card_types[0]

@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qmro"]
 size = Vector2(150, 210)
 
-[node name="Stack" type="Area2D" unique_id=1825856516]
+[node name="Stack" type="Area2D" unique_id=1825856516 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_rpeue")
+sprite = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://btpuxauc2juen"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=627968310]
