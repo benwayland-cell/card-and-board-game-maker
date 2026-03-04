@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b6iqhgn07xupl"]
+
+[ext_resource type="Script" uid="uid://cxifoyhouvhdx" path="res://player/player_hand_snap_location.gd" id="1_hvcct"]
+[ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://card_textures/empty_card_sprite.png" id="2_2sa8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf33q"]
+size = Vector2(150, 210)
+
+[node name="PlayerHandSnapLocation" type="Area2D" unique_id=1666059736 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_hvcct")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=137440073]
+texture = ExtResource("2_2sa8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2094303800]
+shape = SubResource("RectangleShape2D_tf33q")

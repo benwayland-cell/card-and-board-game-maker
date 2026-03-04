@@ -1,6 +1,10 @@
-extends HBoxContainer
+class_name PlayerHand
+extends Control
 
+@export var camera: Camera2D
 @export var change_size_speed: float = 10.0
+
+@onready var h_box: HBoxContainer = %HBoxContainer
 
 var player: Player:
 	set = _set_player
@@ -10,14 +14,38 @@ const NODE_MINIMUM_SIZE := Vector2(GlobalVariables.CARD_TEXTURE_WIDTH, GlobalVar
 const CARD_OFFSET := NODE_MINIMUM_SIZE / 2.0
 
 
+func _ready() -> void:
+	assert(camera != null, "Didn't export camera in player hand")
+
+
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("debug"):
+		print("C pos: " + str(camera.position))
+		print("C zoom: " +  str(camera.zoom))
+		print("H pos: " + str(position))
+		print("H scale: " + str(scale))
+		print()
+	
+	_handle_pos()
+	_handle_card_scale(delta)
+
+
+func _handle_pos() -> void:
+	scale = Vector2(1 / camera.zoom.x, 1 / camera.zoom.y)
+	
+	var y_cor = camera.global_position.y + (get_viewport_rect().size.y / 2) * scale.y
+	var bottom_middle_cor := Vector2(camera.global_position.x , y_cor)
+	global_position = bottom_middle_cor
+
+
+func _handle_card_scale(delta: float) -> void:
 	if player == null:
 		return
 	
 	for card in player.hand:
 		var target_card_scale: Vector2
 		if card.selected and not card.is_snapping:
-			target_card_scale = GlobalVariables.camera_zoom
+			target_card_scale = camera.zoom
 		else:
 			target_card_scale = Vector2.ONE
 		
@@ -26,11 +54,11 @@ func _process(delta: float) -> void:
 
 func _set_player(new_player: Player) -> void:
 	# empty the children
-	for child in get_children():
+	for child in h_box.get_children():
 		child.queue_free()
 	
 	for card: Card in new_player.hand:
-		add_child(_new_card_control_node(card))
+		h_box.add_child(_new_card_control_node(card))
 	
 	player = new_player
 

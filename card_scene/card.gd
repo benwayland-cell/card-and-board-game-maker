@@ -100,7 +100,6 @@ func _handle_deselecting_mouse() -> void:
 	if not (Input.is_action_just_released("left_click") and selected):
 		return
 	
-	print("ran")
 	selected = false
 	
 	if get_global_mouse_position() == start_drag_mouse_pos:

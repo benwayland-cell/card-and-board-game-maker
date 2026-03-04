@@ -20,15 +20,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Hand" type="CanvasLayer" parent="." unique_id=2050259774]
+
 [node name="CameraScene" parent="." unique_id=1556025397 instance=ExtResource("2_ptjb6")]
+
+[node name="PlayerHand" parent="CameraScene" unique_id=962752257 node_paths=PackedStringArray("camera") instance=ExtResource("1_7tbl0")]
+unique_name_in_owner = true
+offset_top = 324.0
+offset_bottom = 324.0
+camera = NodePath("..")
 
 [node name="Stack" parent="." unique_id=1825856516 instance=ExtResource("3_i2265")]
 position = Vector2(339, -147)
 
 [node name="SingleSnap" parent="." unique_id=1141027611 instance=ExtResource("4_7tbl0")]
 position = Vector2(-414, -67)
-
-[node name="PlayerHand" parent="." unique_id=962752257 node_paths=PackedStringArray("camera") instance=ExtResource("1_7tbl0")]
-unique_name_in_owner = true
-z_index = 1
-camera = NodePath("../CameraScene")
