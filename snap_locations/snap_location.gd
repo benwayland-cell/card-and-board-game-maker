@@ -31,10 +31,8 @@ func add_card_to_snap_location(card: Card) -> void:
 	if card_parent is SnapLocation:
 		card_parent.remove_card_from_snap_location(card)
 	
-	elif card_parent == null:
-		pass
-	else:
-		assert(false, "Card [" + card.name + "]'s parent was not a snap location")
+	elif card_parent != null:
+		card_parent.remove_child(card)
 	
 	add_child(card)
 

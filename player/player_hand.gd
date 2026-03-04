@@ -69,7 +69,7 @@ func _new_card_control_node(card_to_attatch: Card) -> Control:
 	new_control_node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	# make a snap location for them to attatch to
-	var new_single_snap: SingleSnap = Scenes.SINGLE_SNAP_SCENE.instantiate()
+	var new_single_snap: PlayerHandSnap = Scenes.PLAYER_HAND_SNAP_SCENE.instantiate()
 	new_single_snap.position = CARD_OFFSET
 	new_single_snap.sprite.texture = null
 	

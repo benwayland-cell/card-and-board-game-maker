@@ -12,3 +12,4 @@ const SINGLE_NODE_MENU_SCENE: PackedScene = preload("uid://bfagx5okkfala") # thi
 # snap location scenes
 const SINGLE_SNAP_SCENE: PackedScene = preload("uid://cqhvtc2cg316c")
 const STACK_SCENE: PackedScene = preload("uid://daxva46oxm3tt")
+const PLAYER_HAND_SNAP_SCENE: PackedScene = preload("uid://b6iqhgn07xupl")

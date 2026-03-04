@@ -4,4 +4,4 @@ extends SnapLocation
 
 func remove_card_from_snap_location(card: Card) -> void:
 	super.remove_card_from_snap_location(card)
-	queue_free()
+	get_parent().queue_free()
