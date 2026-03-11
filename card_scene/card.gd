@@ -72,7 +72,7 @@ func _handle_snapping_to_snap_location(overlapping_snap_location : SnapLocation)
 	if get_parent() != overlapping_snap_location:
 		overlapping_snap_location.add_card_to_snap_location(self)
 	
-	global_position = overlapping_snap_location.global_position
+	global_position = overlapping_snap_location.get_snap_position()
 
 
 # Moves the card to follow the mouse
@@ -161,5 +161,11 @@ func get_variable_data() -> Dictionary:
 
 
 func _go_to_zero(delta: float) -> void:
-	if position != Vector2.ZERO:
-		position = position.slerp(Vector2.ZERO, RETURN_SPEED * delta)
+	var target_pos: Vector2 = Vector2.ZERO
+	
+	var parent = get_parent()
+	if parent is SnapLocation:
+		target_pos = parent.get_snap_position()
+	
+	if global_position != target_pos:
+		global_position = global_position.slerp(target_pos, RETURN_SPEED * delta)

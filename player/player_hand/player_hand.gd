@@ -19,13 +19,6 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("debug"):
-		print("C pos: " + str(camera.position))
-		print("C zoom: " +  str(camera.zoom))
-		print("H pos: " + str(position))
-		print("H scale: " + str(scale))
-		print()
-	
 	_handle_pos()
 	_handle_card_scale(delta)
 
@@ -62,6 +55,7 @@ func _set_player(new_player: Player) -> void:
 	
 	player = new_player
 
+
 func _new_card_control_node(card_to_attatch: Card) -> Control:
 	var new_control_node := Control.new()
 	# set size of control node
@@ -71,9 +65,13 @@ func _new_card_control_node(card_to_attatch: Card) -> Control:
 	# make a snap location for them to attatch to
 	var new_single_snap: PlayerHandSnap = Scenes.PLAYER_HAND_SNAP_SCENE.instantiate()
 	new_single_snap.position = CARD_OFFSET
-	new_single_snap.sprite.texture = null
+	new_single_snap.remove_card.connect(_on_snap_location_remove_card)
 	
 	new_single_snap.add_card_to_snap_location(card_to_attatch)
 	new_control_node.add_child(new_single_snap)
 	
 	return new_control_node
+
+
+func _on_snap_location_remove_card(card_to_remove: Card) -> void:
+	player.remove_card(card_to_remove)

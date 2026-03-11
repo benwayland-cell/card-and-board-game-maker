@@ -21,8 +21,12 @@ func _on_mouse_exited() -> void:
 	mouse_is_overlapping = false
 
 
-func check_for_snapping(_card: Card) -> bool:
+func check_for_snapping(card: Card) -> bool:
 	return mouse_is_overlapping
+
+
+func get_snap_position() -> Vector2:
+	return global_position
 
 
 func add_card_to_snap_location(card: Card) -> void:

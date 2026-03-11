@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hdx3rf1k7552"]
 
-[ext_resource type="Script" uid="uid://3o4d4w621ec4" path="res://player/player_hand.gd" id="1_48hfs"]
+[ext_resource type="Script" uid="uid://3o4d4w621ec4" path="res://player/player_hand/player_hand.gd" id="1_48hfs"]
 
 [node name="PlayerHand" type="Control" unique_id=1009519825]
 layout_mode = 3
