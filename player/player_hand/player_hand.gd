@@ -75,3 +75,8 @@ func _new_card_control_node(card_to_attatch: Card) -> Control:
 
 func _on_snap_location_remove_card(card_to_remove: Card) -> void:
 	player.remove_card(card_to_remove)
+
+
+func add_card_to_hand(card_to_add: Card) -> void:
+	player.hand.append(card_to_add)
+	h_box.add_child(_new_card_control_node(card_to_add))

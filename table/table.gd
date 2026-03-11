@@ -1,4 +1,8 @@
+class_name Table
 extends Node2D
+
+
+@onready var player_hand: PlayerHand = %PlayerHand
 
 
 func _ready() -> void:
@@ -9,4 +13,4 @@ func _ready() -> void:
 	add_child(test_stack)
 	
 	# add to the player hand
-	%PlayerHand.player = GlobalVariables.players[0]
+	player_hand.player = GlobalVariables.players[0]

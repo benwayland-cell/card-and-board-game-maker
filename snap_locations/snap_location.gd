@@ -21,7 +21,7 @@ func _on_mouse_exited() -> void:
 	mouse_is_overlapping = false
 
 
-func check_for_snapping(card: Card) -> bool:
+func check_for_snapping(_card: Card) -> bool:
 	return mouse_is_overlapping
 
 
