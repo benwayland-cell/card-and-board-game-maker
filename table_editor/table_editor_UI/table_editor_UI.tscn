@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://b3jhyhawi1xoj"]
+
+[ext_resource type="Script" uid="uid://irqtp6nq8qjh" path="res://table_editor/table_editor_UI/table_editor_ui.gd" id="1_unabl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p8wq6"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="TableEditorUi" type="Control" unique_id=2046130224]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_unabl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1671500717]
+custom_minimum_size = Vector2(305, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1012360310]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = 852.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect2" unique_id=480625109]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect2/ScrollContainer" unique_id=202767310]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2/ScrollContainer/MarginContainer" unique_id=1338745312]
+layout_mode = 2
+
+[node name="TopMenuBar" type="MenuBar" parent="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer" unique_id=182441527]
+layout_mode = 2
+
+[node name="File" type="PopupMenu" parent="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer/TopMenuBar" unique_id=1062609591]
+item_count = 4
+item_0/text = "Save"
+item_0/id = 0
+item_1/text = "Save As"
+item_1/id = 1
+item_2/text = "Export"
+item_2/id = 2
+item_3/text = "Import"
+item_3/id = 3
+
+[node name="Insert" type="PopupMenu" parent="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer/TopMenuBar" unique_id=1971749883]
+item_count = 2
+item_0/text = "Stack"
+item_0/id = 0
+item_1/text = "Single Snap"
+item_1/id = 1
+
+[node name="Play" type="PopupMenu" parent="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer/TopMenuBar" unique_id=1833679280]
+item_count = 1
+item_0/text = "Play Game"
+item_0/id = 0
+
+[node name="Label" type="Label" parent="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1299789252]
+layout_mode = 2
+text = "Test Text"
+label_settings = SubResource("LabelSettings_p8wq6")
+
+[node name="Button" type="Button" parent="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2052903669]
+layout_mode = 2
+text = "Test Text"
+
+[connection signal="id_pressed" from="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer/TopMenuBar/File" to="." method="_on_file_id_pressed"]
+[connection signal="id_pressed" from="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer/TopMenuBar/Insert" to="." method="_on_insert_id_pressed"]
+[connection signal="id_pressed" from="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer/TopMenuBar/Play" to="." method="_on_play_id_pressed"]
