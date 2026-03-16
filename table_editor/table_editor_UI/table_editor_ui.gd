@@ -1,9 +1,9 @@
 class_name TableEditorUI
 extends Control
 
-#signal add_node
+signal add_node
 
-
+const editor_stack_scene: PackedScene = preload("uid://cbxdvjbwy6pws")
 
 
 func _on_file_id_pressed(id: int) -> void:
@@ -21,7 +21,7 @@ func _on_file_id_pressed(id: int) -> void:
 func _on_insert_id_pressed(id: int) -> void:
 	match id:
 		0:
-			print("Insert Stack")
+			add_node.emit(editor_stack_scene)
 		1:
 			print("Insert Single Snap")
 

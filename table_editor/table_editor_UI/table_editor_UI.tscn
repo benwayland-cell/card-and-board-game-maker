@@ -7,10 +7,11 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="TableEditorUi" type="Control" unique_id=2046130224]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 11
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("1_unabl")
 
@@ -23,16 +24,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1012360310]
 custom_minimum_size = Vector2(300, 0)
-layout_mode = 0
-offset_left = 852.0
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ColorRect2" unique_id=480625109]
 layout_mode = 1
