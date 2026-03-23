@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ixelqx4tweeu"]
+
+[ext_resource type="Script" uid="uid://lx8egoaurydt" path="res://table_editor/table_editor_UI/none_selected_UI/none_selected_ui.gd" id="1_knyvb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cr0l0"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="NoneSelectedUI" type="VBoxContainer" unique_id=984129438]
+script = ExtResource("1_knyvb")
+
+[node name="Label" type="Label" parent="." unique_id=233555646]
+layout_mode = 2
+text = "Nodes:"
+label_settings = SubResource("LabelSettings_cr0l0")
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1679156067]
+unique_name_in_owner = true
+layout_mode = 2

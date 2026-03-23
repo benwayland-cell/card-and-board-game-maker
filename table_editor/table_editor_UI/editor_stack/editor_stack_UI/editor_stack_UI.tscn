@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c4hctcr2wcmvo"]
+
+[ext_resource type="Script" uid="uid://2kiih2ykinbq" path="res://table_editor/table_editor_UI/editor_stack/editor_stack_UI/editor_stack_ui.gd" id="1_wh2oy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wh2oy"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="EditorStackUI" type="VBoxContainer" unique_id=1185383772]
+script = ExtResource("1_wh2oy")
+
+[node name="DeselectButton" type="Button" parent="." unique_id=818284412]
+layout_mode = 2
+text = "Deselect"
+
+[node name="NameContainer" type="HBoxContainer" parent="." unique_id=543648049]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="NameContainer" unique_id=343521324]
+layout_mode = 2
+text = "Name: "
+label_settings = SubResource("LabelSettings_wh2oy")
+
+[node name="NameLineEdit" type="LineEdit" parent="NameContainer" unique_id=1831435112]
+unique_name_in_owner = true
+layout_mode = 2

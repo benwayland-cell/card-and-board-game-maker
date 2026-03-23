@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://fnmtsa26r2ca"]
+
+[ext_resource type="Script" uid="uid://cvr6dpp68k2pm" path="res://table_editor/table_editor_UI/editor_single_snap/editor_single_snap.gd" id="1_ghswn"]
+[ext_resource type="Texture2D" uid="uid://2pdnf51odotv" path="res://card_textures/empty_card_sprite.png" id="2_ucydw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky5e5"]
+size = Vector2(150, 210)
+
+[node name="EditorSingleSnap" type="Area2D" unique_id=1730786071]
+script = ExtResource("1_ghswn")
+
+[node name="Highlight" type="ColorRect" parent="." unique_id=205680328]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(154, 214)
+offset_left = -77.0
+offset_top = -107.0
+offset_right = -37.0
+offset_bottom = -67.0
+mouse_filter = 2
+color = Color(1, 1, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2004750697]
+unique_name_in_owner = true
+texture = ExtResource("2_ucydw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1603681325]
+shape = SubResource("RectangleShape2D_ky5e5")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

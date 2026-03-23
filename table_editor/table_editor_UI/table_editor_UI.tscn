@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://b3jhyhawi1xoj"]
 
 [ext_resource type="Script" uid="uid://irqtp6nq8qjh" path="res://table_editor/table_editor_UI/table_editor_ui.gd" id="1_unabl"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_p8wq6"]
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://ixelqx4tweeu" path="res://table_editor/table_editor_UI/none_selected_UI/none_selected_UI.tscn" id="2_cku3e"]
 
 [node name="TableEditorUi" type="Control" unique_id=2046130224]
 layout_mode = 3
@@ -82,14 +80,12 @@ item_count = 1
 item_0/text = "Play Game"
 item_0/id = 0
 
-[node name="Label" type="Label" parent="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1299789252]
+[node name="VariableMenu" type="Control" parent="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1118225221]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Test Text"
-label_settings = SubResource("LabelSettings_p8wq6")
 
-[node name="Button" type="Button" parent="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2052903669]
-layout_mode = 2
-text = "Test Text"
+[node name="NoneSelectedUI" parent="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer/VariableMenu" unique_id=984129438 instance=ExtResource("2_cku3e")]
+layout_mode = 0
 
 [connection signal="id_pressed" from="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer/TopMenuBar/File" to="." method="_on_file_id_pressed"]
 [connection signal="id_pressed" from="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer/TopMenuBar/Insert" to="." method="_on_insert_id_pressed"]

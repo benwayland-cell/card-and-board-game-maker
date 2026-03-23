@@ -1,6 +1,8 @@
 class_name EditorSnapLocation
 extends Area2D
 
+signal just_highlighted
+
 @onready var highlight_rect: ColorRect = %Highlight
 
 var selected := false # if it's been selected by the user
@@ -42,10 +44,14 @@ func _follow_mouse():
 
 
 func _set_highlighted(new_value: bool) -> void:
+	if highlighted == new_value:
+		return
 	highlighted = new_value
 	highlight_rect.visible = highlighted
 	
+	if highlighted:
+		just_highlighted.emit(self)
+	
 	var parent = get_parent()
 	if highlighted and parent != null:
-		print(parent.name)
 		parent.move_child(self, parent.get_child_count())

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cfj5nhr6vdjgw"]
+
+[ext_resource type="Script" uid="uid://ble651ttd6cty" path="res://table_editor/table_editor_UI/none_selected_UI/none_selected_button.gd" id="1_xaiw4"]
+
+[node name="NoneSelectedButton" type="Button" unique_id=1604524238]
+script = ExtResource("1_xaiw4")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

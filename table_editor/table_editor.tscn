@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://b3jhyhawi1xoj" path="res://table_editor/table_editor_UI/table_editor_UI.tscn" id="1_povli"]
 [ext_resource type="Script" uid="uid://dp413ytd5a58t" path="res://table_editor/table_editor.gd" id="1_sddup"]
 [ext_resource type="PackedScene" uid="uid://q5866ikokh4n" path="res://camera_scene/camera_scene.tscn" id="2_uhqt3"]
-[ext_resource type="PackedScene" uid="uid://cbxdvjbwy6pws" path="res://table_editor/table_editor_UI/editor_stack/editor_stack.tscn" id="4_0u67v"]
 
 [node name="TableEditor" type="Node2D" unique_id=139968296]
 script = ExtResource("1_sddup")
@@ -28,5 +27,3 @@ unique_name_in_owner = true
 
 [node name="EditableNodes" type="Node" parent="." unique_id=1645153390]
 unique_name_in_owner = true
-
-[node name="EditorStack" parent="EditableNodes" unique_id=1730786071 instance=ExtResource("4_0u67v")]
