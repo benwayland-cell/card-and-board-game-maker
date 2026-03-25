@@ -46,6 +46,8 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect2/ScrollContainer" unique_id=202767310]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -85,7 +87,11 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="NoneSelectedUI" parent="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer/VariableMenu" unique_id=984129438 instance=ExtResource("2_cku3e")]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
 
 [connection signal="id_pressed" from="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer/TopMenuBar/File" to="." method="_on_file_id_pressed"]
 [connection signal="id_pressed" from="ColorRect2/ScrollContainer/MarginContainer/VBoxContainer/TopMenuBar/Insert" to="." method="_on_insert_id_pressed"]

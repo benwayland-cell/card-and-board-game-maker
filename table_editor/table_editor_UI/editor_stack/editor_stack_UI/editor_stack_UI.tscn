@@ -5,7 +5,13 @@
 [sub_resource type="LabelSettings" id="LabelSettings_wh2oy"]
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_cfmj6"]
+font_color = Color(0, 0, 0, 1)
+
 [node name="EditorStackUI" type="VBoxContainer" unique_id=1185383772]
+offset_right = 127.0
+offset_bottom = 66.0
+size_flags_horizontal = 3
 script = ExtResource("1_wh2oy")
 
 [node name="DeselectButton" type="Button" parent="." unique_id=818284412]
@@ -23,6 +29,35 @@ label_settings = SubResource("LabelSettings_wh2oy")
 [node name="NameLineEdit" type="LineEdit" parent="NameContainer" unique_id=1831435112]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShuffleContainer" type="HBoxContainer" parent="." unique_id=463395526]
+layout_mode = 2
+
+[node name="ShuffleLabel" type="Label" parent="ShuffleContainer" unique_id=218988475]
+layout_mode = 2
+text = "Shuffle: "
+label_settings = SubResource("LabelSettings_cfmj6")
+
+[node name="ShuffleButton" type="Button" parent="ShuffleContainer" unique_id=1819160748]
+unique_name_in_owner = true
+layout_mode = 2
+text = "True"
+
+[node name="FaceUpContainer" type="HBoxContainer" parent="." unique_id=793199660]
+layout_mode = 2
+
+[node name="FaceUpLabel" type="Label" parent="FaceUpContainer" unique_id=626281695]
+layout_mode = 2
+text = "Face Up: "
+label_settings = SubResource("LabelSettings_cfmj6")
+
+[node name="FaceUpButton" type="Button" parent="FaceUpContainer" unique_id=86748120]
+unique_name_in_owner = true
+layout_mode = 2
+text = "True"
 
 [connection signal="pressed" from="DeselectButton" to="." method="_on_deselect_button_pressed"]
 [connection signal="text_submitted" from="NameContainer/NameLineEdit" to="." method="_on_name_line_edit_text_submitted"]
+[connection signal="pressed" from="ShuffleContainer/ShuffleButton" to="." method="_on_shuffle_button_pressed"]
+[connection signal="pressed" from="FaceUpContainer/FaceUpButton" to="." method="_on_face_up_button_pressed"]
