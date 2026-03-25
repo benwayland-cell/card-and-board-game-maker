@@ -23,3 +23,6 @@ label_settings = SubResource("LabelSettings_wh2oy")
 [node name="NameLineEdit" type="LineEdit" parent="NameContainer" unique_id=1831435112]
 unique_name_in_owner = true
 layout_mode = 2
+
+[connection signal="pressed" from="DeselectButton" to="." method="_on_deselect_button_pressed"]
+[connection signal="text_submitted" from="NameContainer/NameLineEdit" to="." method="_on_name_line_edit_text_submitted"]

@@ -19,7 +19,7 @@ var current_highlighted: EditorSnapLocation:
 
 func _ready() -> void:
 	var none_menu: NoneSelectedUI = variable_menu.get_child(0)
-	none_menu.setup(editable_nodes_array)
+	none_menu.setup(editable_nodes_array, null)
 	none_menu.highlight_snap_location.connect(_on_highlight_snap_location)
 
 
@@ -72,10 +72,16 @@ func _set_current_highlighted(new_node: EditorSnapLocation) -> void:
 	else:
 		new_menu = NONE_SELECTED_UI_SCENE.instantiate()
 	
-	new_menu.setup(editable_nodes_array)
+	new_menu.associated_editor_snap_location = current_highlighted
+	new_menu.setup(editable_nodes_array, current_highlighted)
 	new_menu.highlight_snap_location.connect(_on_highlight_snap_location)
+	new_menu.deselect.connect(_on_snap_location_deselect)
 	variable_menu.add_child(new_menu)
 
 
 func _on_highlight_snap_location(editor_snap_location: EditorSnapLocation) -> void:
 	editor_snap_location.highlighted = true
+
+
+func _on_snap_location_deselect() -> void:
+	current_highlighted = null
