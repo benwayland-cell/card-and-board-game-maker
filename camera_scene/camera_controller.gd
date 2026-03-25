@@ -1,5 +1,11 @@
 extends Camera2D
 
+@export_category("Active Processes")
+@export var run_zoom: bool = true
+@export var run_simple_pan: bool = true
+@export var run_click_and_drag: bool = true
+
+@export_category("Zoom properties")
 @export var zoom_factor := 0.1
 @export var zoom_speed := 10
 @export var simple_pan_speed := 1000
@@ -15,9 +21,12 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	_zoom(delta)
-	_simple_pan(delta)
-	_click_and_drag()
+	if run_zoom:
+		_zoom(delta)
+	if run_simple_pan:
+		_simple_pan(delta)
+	if run_click_and_drag:
+		_click_and_drag()
 	
 	GlobalVariables.camera_zoom = zoom
 

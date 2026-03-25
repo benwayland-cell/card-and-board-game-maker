@@ -24,6 +24,7 @@ mouse_filter = 2
 unique_name_in_owner = true
 
 [node name="CameraScene" parent="." unique_id=1556025397 instance=ExtResource("2_uhqt3")]
+run_simple_pan = false
 
 [node name="EditableNodes" type="Node" parent="." unique_id=1645153390]
 unique_name_in_owner = true
