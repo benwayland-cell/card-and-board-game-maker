@@ -22,3 +22,7 @@ func add_node(packed_scene: PackedScene) -> void:
 
 func _on_snap_location_just_highlighted(editor_snap_location: EditorSnapLocation) -> void:
 	table_editor_ui.current_highlighted = editor_snap_location
+
+
+func _on_table_editor_ui_save() -> void:
+	GlobalVariables.table_save_data = GlobalVariables.SaveData.make_save_data_array(editable_nodes_array)

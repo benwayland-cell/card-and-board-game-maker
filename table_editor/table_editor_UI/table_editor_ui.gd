@@ -2,6 +2,7 @@ class_name TableEditorUI
 extends Control
 
 signal add_node
+signal save
 
 const EDITOR_STACK_SCENE: PackedScene = preload("uid://cbxdvjbwy6pws")
 const EDITOR_SINGLE_SNAP_SCENE: PackedScene = preload("uid://fnmtsa26r2ca")
@@ -30,7 +31,7 @@ func update() -> void:
 func _on_file_id_pressed(id: int) -> void:
 	match id:
 		0:
-			print("Save")
+			save.emit()
 		1:
 			print("Save As")
 		2:
@@ -50,7 +51,7 @@ func _on_insert_id_pressed(id: int) -> void:
 func _on_play_id_pressed(id: int) -> void:
 	match id:
 		0:
-			print("Play Game")
+			get_tree().change_scene_to_packed(GlobalVariables.TABLE_SCENE)
 
 
 func _set_current_highlighted(new_node: EditorSnapLocation) -> void:

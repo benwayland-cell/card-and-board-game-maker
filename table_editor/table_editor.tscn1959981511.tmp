@@ -28,5 +28,3 @@ run_simple_pan = false
 
 [node name="EditableNodes" type="Node" parent="." unique_id=1645153390]
 unique_name_in_owner = true
-
-[connection signal="save" from="CanvasLayer/TableEditorUi" to="." method="_on_table_editor_ui_save"]

@@ -3,6 +3,8 @@ extends Node
 const DEFAULT_FRONT_TEXTURE :Texture2D= preload("res://card_textures/Test Card.png")
 const DEFAULT_BACK_TEXTURE :Texture2D= preload("res://card_textures/Test Card Back.png")
 
+const TABLE_SCENE: PackedScene = preload("uid://dfi586cpgfuvl")
+
 const CARD_TEXTURE_WIDTH: int = 150
 const CARD_TEXTURE_HEIGHT: int = 210
 
@@ -11,10 +13,16 @@ var simple_label_settings := LabelSettings.new()
 var card_types: Array[CardType] = []
 var players: Array[Player] = []
 
+var table_save_data: Array[SaveData] = []
+
 
 func _ready():
 	# init simple_label_settings
 	simple_label_settings.font_color = Color.BLACK
+	
+	
+	
+	# after this is for debug
 	
 	# init card types
 	var test_label1 = Label.new()
@@ -89,3 +97,53 @@ func load_texture_from_path(path: String) -> Texture2D:
 	
 	var new_texture := ImageTexture.create_from_image(image)
 	return new_texture
+
+
+class SaveData:
+	enum DataType {EDITOR_STACK, EDITOR_SINGLE_SNAP}
+	
+	var position: Vector2 = Vector2.ZERO
+	var shuffle: bool = true
+	var face_up: bool = false
+	var starting_deck: Deck
+	var starting_deck_card_type: CardType
+	var data_type: DataType
+	
+	func _init(data: EditorSnapLocation) -> void:
+		if data is EditorStack:
+			_save_editor_stack(data)
+		elif data is EditorSingleSnap:
+			data_type = DataType.EDITOR_SINGLE_SNAP
+		else:
+			assert(false, "Not implemented")
+	
+	func _save_editor_stack(data: EditorStack) -> void:
+		position = data.position
+		shuffle = data.shuffle
+		face_up = data.face_up
+		starting_deck = data.starting_deck
+		starting_deck_card_type = data.starting_deck_card_type
+		data_type = DataType.EDITOR_STACK
+	
+	
+	static func make_save_data_array(data_array : Array[EditorSnapLocation]) -> Array[SaveData]:
+		var to_return: Array[SaveData] = []
+		
+		for data: EditorSnapLocation in data_array:
+			to_return.append(SaveData.new(data))
+		
+		return to_return
+
+
+const CARD_EDITOR_SCENE: PackedScene = preload("uid://cq0456nebfdxi")
+const TABLE_EDITOR_SCENE: PackedScene = preload("uid://djhjymkdg13o1")
+
+
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed("ctrl"):
+		if Input.is_action_just_pressed("go_to_table"):
+			get_tree().change_scene_to_packed(TABLE_SCENE)
+		elif Input.is_action_just_pressed("go_to_card_editor"):
+			get_tree().change_scene_to_packed(CARD_EDITOR_SCENE)
+		elif Input.is_action_just_pressed("go_to_table_editor"):
+			get_tree().change_scene_to_packed(TABLE_EDITOR_SCENE)

@@ -12,6 +12,10 @@ var highlighted = false:
 	set = _set_highlighted
 
 
+func get_save_data() -> void:
+	pass
+
+
 func _process(_delta: float) -> void:
 	_handle_deselecting_mouse()
 	_follow_mouse()

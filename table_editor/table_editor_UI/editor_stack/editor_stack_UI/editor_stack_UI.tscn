@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4hctcr2wcmvo"]
 
 [ext_resource type="Script" uid="uid://2kiih2ykinbq" path="res://table_editor/table_editor_UI/editor_stack/editor_stack_UI/editor_stack_ui.gd" id="1_wh2oy"]
+[ext_resource type="PackedScene" uid="uid://ckgv4rnx287t6" path="res://table_editor/choose_deck_popup_menu/choose_deck_popup_menu.tscn" id="2_cfmj6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wh2oy"]
 font_color = Color(0, 0, 0, 1)
@@ -57,7 +58,27 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "True"
 
+[node name="CurrentDeckContainer" type="HBoxContainer" parent="." unique_id=480283139]
+layout_mode = 2
+
+[node name="CurrentDeckLabel" type="Label" parent="CurrentDeckContainer" unique_id=193399483]
+layout_mode = 2
+text = "Current Deck: "
+label_settings = SubResource("LabelSettings_cfmj6")
+
+[node name="ChooseDeckButton" type="Button" parent="CurrentDeckContainer" unique_id=1734504978]
+unique_name_in_owner = true
+layout_mode = 2
+text = "None"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1421531162]
+
+[node name="ChooseDeckPopupMenu" parent="CanvasLayer" unique_id=453666120 instance=ExtResource("2_cfmj6")]
+unique_name_in_owner = true
+visible = false
+
 [connection signal="pressed" from="DeselectButton" to="." method="_on_deselect_button_pressed"]
 [connection signal="text_submitted" from="NameContainer/NameLineEdit" to="." method="_on_name_line_edit_text_submitted"]
 [connection signal="pressed" from="ShuffleContainer/ShuffleButton" to="." method="_on_shuffle_button_pressed"]
 [connection signal="pressed" from="FaceUpContainer/FaceUpButton" to="." method="_on_face_up_button_pressed"]
+[connection signal="pressed" from="CurrentDeckContainer/ChooseDeckButton" to="." method="_on_choose_deck_button_pressed"]
